@@ -26,7 +26,7 @@ const Features = () => {
             {features.map((feature) => (
               <div key={feature.id} className="process-step-appx">
                 <img
-                  src={`http://localhost:5000${feature.image}`}
+                  src={`https://loancopyvercel.vercel.app/${feature.image}`}
                   alt={`Feature ${feature.id}`}
                   className="step-image-appx"
                 />
