@@ -1,3 +1,4 @@
+/* Cta.css */
 .cta-section {
     margin: 0 70px;
     padding: 20px 0;
@@ -6,8 +7,7 @@
     overflow: hidden;
     font-family: Arial, sans-serif;
     border: 2.4px solid #1E2939;
-    box-shadow: 0px 8px 10px -6px #0000001A;
-    box-shadow: 0px 20px 25px -5px #0000001A;
+    box-shadow: 0px 8px 10px -6px #0000001A, 0px 20px 25px -5px #0000001A;
     border-radius: 16px;
 }
 
@@ -19,10 +19,10 @@
     z-index: 2;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .cta-content {
-    color: white;
     width: 50%;
 }
 
@@ -31,6 +31,7 @@
     font-weight: 400;
     line-height: 36px;
     color: #0A0A0A;
+    margin-bottom: 15px;
 }
 
 .cta-description {
@@ -40,104 +41,71 @@
     color: #4A5565;
 }
 
-/* Stats Grid */
+/* Stats Grid - FIXED: Always 2 items per line */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 20px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    grid-template-columns: 1fr 1fr; /* Explicitly 2 columns */
+    gap: 15px;
+    width: 100%;
+    margin: 25px 0;
 }
 
 .stat-card {
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
+    border-radius: 12px;
     padding: 15px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-}
-
-.stat-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #FFD700, #FFA500);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.stat-card:hover::before {
-    transform: scaleX(1);
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-}
-
-.stat-icon-wrapper {
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
+    min-height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 15px;
-    transition: all 0.3s ease;
-}
-
-.stat-card:hover .stat-icon-wrapper {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.1);
-}
-
-.stat-icon {
-    font-size: 1.5rem;
-    color: #FFD700;
+    text-align: center;
+    border: 2px solid;
 }
 
 .stat-content {
-    color: white;
+    width: 100%;
 }
 
 .stat-value {
-    font-size: 24px;
-    font-weight: 400;
-    margin-top: 5px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    line-height: 1.2;
 }
 
 .stat-label {
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 500;
     color: #4A5565;
 }
 
 .cta-box {
     border: 2.4px solid #1E2939;
     border-radius: 24px;
-    padding: 10px 20px;
+    padding: 20px;
     width: 45%;
     background: linear-gradient(135deg, #E9D4FF 0%, #FCCEE8 50%, #FFD6A7 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .cta-box .percentage {
     background-color: #FFFFFF;
-    padding: 10px 0;
+    padding: 12px 0;
     margin: 12px 0;
     border-radius: 16px;
 }
 
 .cta-box .percentage:nth-child(1) {
     width: 70%;
+}
+
+.cta-box .percentage:nth-child(2) {
+    width: 85%;
 }
 
 .cta-box .percentage:nth-child(3) {
@@ -150,18 +118,18 @@
     color: #FFFFFF;
     width: 100%;
     border: 1.6px solid #1E2939;
-    padding: 20px 40px;
+    padding: 18px 30px;
     border-radius: 16px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+    gap: 10px;
+    margin-top: 15px;
+    box-shadow: 0 10px 30px rgba(173, 70, 255, 0.3);
     position: relative;
     overflow: hidden;
 }
@@ -183,22 +151,7 @@
 
 .cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
-}
-
-.cta-arrow {
-    transition: transform 0.3s ease;
-}
-
-.cta-button:hover .cta-arrow {
-    transform: translateX(5px);
-}
-
-/* Footer Note */
-.cta-footer {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    margin: 0;
+    box-shadow: 0 15px 40px rgba(173, 70, 255, 0.4);
 }
 
 /* Background Elements */
@@ -244,12 +197,9 @@
 }
 
 @keyframes float {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0) scale(1);
     }
-
     50% {
         transform: translateY(-20px) scale(1.05);
     }
@@ -257,91 +207,141 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .cta-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 40px;
-  }
+    .cta-container {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
 
-  .cta-content,
-  .cta-box {
-    width: 100%;
-  }
+    .cta-content,
+    .cta-box {
+        width: 100%;
+    }
 
-  .cta-content {
-    order: 1;
-  }
-
-  .cta-box {
-    order: 2;
-    padding: 20px;
-  }
-
-  .stats-grid {
-    max-width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  }
+    /* STILL 2 COLUMNS on tablet */
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        max-width: 500px;
+        margin: 25px auto;
+    }
 }
 
 @media (max-width: 768px) {
-  .cta-section {
-    margin: 0 20px;
-    padding: 40px 0;
-  }
+    .cta-section {
+        margin: 0 20px;
+        padding: 30px 0;
+    }
 
-  .cta-container {
-    padding: 20px;
-  }
+    .cta-container {
+        padding: 25px;
+    }
 
-  .cta-title {
-    font-size: 1.8rem;
-    line-height: 2.4rem;
-  }
+    .cta-title {
+        font-size: 24px;
+        line-height: 1.3;
+    }
 
-  .cta-description {
-    font-size: 1rem;
-    line-height: 1.6rem;
-    margin-bottom: 30px;
-  }
+    .cta-description {
+        font-size: 16px;
+        line-height: 1.5;
+    }
 
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
+    /* STILL 2 COLUMNS on mobile */
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        max-width: 100%;
+    }
 
-  .cta-box {
-    padding: 16px;
-  }
+    .stat-card {
+        padding: 12px 8px;
+        min-height: 70px;
+    }
 
-  .cta-button {
-    font-size: 1rem;
-    padding: 14px 24px;
-  }
+    .stat-value {
+        font-size: 18px;
+    }
 
-  .bg-circle-1,
-  .bg-circle-2,
-  .bg-circle-3 {
-    display: none;
-  }
+    .stat-label {
+        font-size: 12px;
+    }
+
+    .cta-box {
+        padding: 20px;
+    }
+
+    .cta-button {
+        font-size: 1.1rem;
+        padding: 16px 24px;
+    }
 }
 
 @media (max-width: 480px) {
-  .cta-title {
-    font-size: 1.6rem;
-    line-height: 2rem;
-  }
+    .cta-section {
+        margin: 0 15px;
+    }
 
-  .cta-description {
-    font-size: 0.95rem;
-  }
+    .cta-container {
+        padding: 20px;
+    }
 
-  .cta-button {
-    font-size: 0.95rem;
-    padding: 12px 20px;
-  }
+    .cta-title {
+        font-size: 22px;
+    }
 
-  .cta-box .percentage {
-    margin: 10px 0;
-  }
+    .cta-description {
+        font-size: 15px;
+    }
+
+    /* STILL 2 COLUMNS on small mobile */
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 10px 6px;
+        min-height: 65px;
+    }
+
+    .stat-value {
+        font-size: 16px !important;
+    }
+
+    .stat-label {
+        font-size: 11px;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 14px 20px;
+    }
+}
+
+/* For very small screens - STILL 2 COLUMNS */
+@media (max-width: 360px) {
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding: 8px 4px;
+        min-height: 60px;
+    }
+
+    .stat-value {
+        font-size: 14px !important;
+    }
+
+    .stat-label {
+        font-size: 10px;
+        line-height: 1.2;
+    }
+}
+
+/* Ensure no other CSS is overriding our grid */
+.stats-grid {
+    grid-template-columns: 1fr 1fr !important;
 }
