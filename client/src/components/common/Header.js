@@ -30,7 +30,7 @@ const Header = () => {
         {/* Left - Logo */}
         <div className="header-logo">
           <Link to="/">
-            <img src="http://localhost:3000/images/logo.png" alt="Logo" />
+            <img src="https://loancopyvercel.vercel.app/images/logo.png" alt="Logo" />
           </Link>
         </div>
 
