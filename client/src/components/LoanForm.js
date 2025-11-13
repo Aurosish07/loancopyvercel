@@ -31,7 +31,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
     const fetchBanks = async () => {
       try {
         console.log("🔄 Fetching banks from backend...");
-        const response = await fetch("http://localhost:5000/api/banks");
+        const response = await fetch("https://loancopy-production.up.railway.app/api/banks");
 
         if (!response.ok) {
           throw new Error(HTTP error! status: ${response.status});
@@ -85,7 +85,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
 
       console.log("Saving application:", applicationData);
 
-      const response = await fetch("http://localhost:5000/api/loan-applications", {
+      const response = await fetch("https://loancopy-production.up.railway.app/api/loan-applications", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
