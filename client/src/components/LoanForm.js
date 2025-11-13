@@ -31,17 +31,17 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
     const fetchBanks = async () => {
       try {
         console.log("🔄 Fetching banks from backend...");
-        const response = await fetch("https://loancopy-production.up.railway.app/api/banks");
+        const response = await fetch("http://localhost:5000/api/banks");
 
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(HTTP error! status: ${response.status});
         }
 
         const data = await response.json();
 
         if (Array.isArray(data)) {
           setBanks(data);
-          console.log(`✅ Loaded ${data.length} banks`);
+          console.log(✅ Loaded ${data.length} banks);
         } else {
           console.error("❌ Banks data is not an array:", data);
           setBanks([]);
@@ -65,7 +65,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
   // File upload handler
   const handleFileChange = (e) => {
     const { name, files } = e.target;
-    console.log(`File selected for ${name}:`, files[0]);
+    console.log(File selected for ${name}:, files[0]);
   };
 
   const handleSubmit = (e) => {
@@ -78,14 +78,14 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
     try {
       const applicationData = {
         ...formData,
-        fullName: `${formData.firstName} ${formData.lastName}`,
+        fullName: ${formData.firstName} ${formData.lastName},
         cibilScore: cibilScore,
         submittedAt: new Date().toLocaleString(),
       };
 
       console.log("Saving application:", applicationData);
 
-      const response = await fetch("https://loancopy-production.up.railway.app/api/loan-applications", {
+      const response = await fetch("http://localhost:5000/api/loan-applications", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -115,7 +115,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
   const handleBankSelection = async (bankId) => {
     try {
       setIsSubmitting(true);
-      const response = await fetch(`https://loancopy-production.up.railway.app/api/loan-applications/${applicationId}/select-bank`, {
+      const response = await fetch(http://localhost:5000/api/loan-applications/${applicationId}/select-bank, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -130,7 +130,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
       if (response.ok) {
         const selectedBank = banks.find(bank => bank.id === bankId);
         setSelectedBank(selectedBank);
-        alert(`✅ ${selectedBank.name} selected successfully! Your loan is approved.`);
+        alert(✅ ${selectedBank.name} selected successfully! Your loan is approved.);
         setStep("final");
       } else {
         throw new Error(result.error || "Failed to select bank");
@@ -172,7 +172,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
           }
         },
         prefill: {
-          name: `${formData.firstName} ${formData.lastName}`,
+          name: ${formData.firstName} ${formData.lastName},
           email: formData.email,
           contact: formData.phoneNumber,
         },
@@ -314,7 +314,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
         {/* STEP 1: Main Form */}
         {step === "form" && (
           <>
-            <div className="loan-form-header">
+               <div className="loan-form-header">
               <div className="loan-form-badge">
                 <img src="/images/loan-icon.png" alt="Loan Icon" />
                 <span>Quick & Easy Application</span>
@@ -322,6 +322,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
               <h1>Apply for Your Loan <span>Today</span></h1>
               <p>Fill out the form below and get approved in minutes! ⚡</p>
             </div>
+
 
             <form onSubmit={handleSubmit} className="loan-form">
               {/* Personal Information Section */}
@@ -756,7 +757,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                 
                 {/* ✅ DIRECT PAYMENT BUTTON - NO EXTRA STEP */}
                 <button
-                  className={`proceed-button ${!agreed ? "disabled" : ""}`}
+                  className={proceed-button ${!agreed ? "disabled" : ""}}
                   disabled={!agreed}
                   onClick={handlePayment}
                 >
