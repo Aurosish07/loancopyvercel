@@ -1,3 +1,5 @@
+
+
 /* src/components/Financialservices.css */
 .financial-services-modern {
   padding: 10px 0;
@@ -592,7 +594,7 @@
 }
 
 .loan-form-popup-content {
-  padding: 40px;
+  /* padding: 40px; */
 }
 
 /* Responsive Design */
@@ -603,7 +605,7 @@
   }
   
   .loan-form-popup-content {
-    padding: 20px;
+    padding: 10px;
   }
   
   .popup-close-btn {
