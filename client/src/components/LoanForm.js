@@ -31,10 +31,10 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
     const fetchBanks = async () => {
       try {
         console.log("🔄 Fetching banks from backend...");
-        const response = await fetch("https://loancopy-production.up.railway.app/api/banks");
+        const response = await fetch("https://loancopy-production.up.railway.appapi/banks");
 
         if (!response.ok) {
-          throw new Error("HTTP error! status:" , response.status);
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const data = await response.json();
@@ -85,7 +85,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
 
       console.log("Saving application:", applicationData);
 
-      const response = await fetch("https://loancopy-production.up.railway.app/api/loan-applications", {
+      const response = await fetch("https://loancopy-production.up.railway.appapi/loan-applications", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -115,7 +115,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
   const handleBankSelection = async (bankId) => {
     try {
       setIsSubmitting(true);
-      const response = await fetch('https://loancopy-production.up.railway.app/api/loan-applications/${applicationId}/select-bank', {
+      const response = await fetch(`https://loancopy-production.up.railway.appapi/loan-applications/${applicationId}/select-bank`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -757,7 +757,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                 
                 {/* ✅ DIRECT PAYMENT BUTTON - NO EXTRA STEP */}
                 <button
-                  className={proceed-button `${!agreed ? "disabled" : ""}`}
+                  className={`proceed-button ${!agreed ? "disabled" : ""}`}
                   disabled={!agreed}
                   onClick={handlePayment}
                 >
