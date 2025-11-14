@@ -131,38 +131,41 @@ const FinancialProducts = ({ onApplyClick }) => {
                   {/* Loan Details Section */}
                   <div className="loan-details-modern">
                     <div className="detail-row">
-                      <div className="detail-item">
-                        <FaPercent className="detail-icon" />
-                        <div className="detail-content">
+                      <div className="detail-items">
+                        
+                        <div className="detail-contents">
+                          <FaPercent className="detail-icon" />
                           <span className="detail-label">Interest Rate</span>
                           <span className="detail-value">
                             {product.interest_rate}
                           </span>
                         </div>
                       </div>
-                      <div className="detail-item">
-                        <FaClock className="detail-icon" />
-                        <div className="detail-content">
+                      <div className="detail-items">
+                        
+                        <div className="detail-contents">
+                          <FaClock className="detail-icon" />
                           <span className="detail-label">Tenure</span>
                           <span className="detail-value">
                             {product.tenure}
                           </span>
                         </div>
                       </div>
-                    </div>
-                    <div className="detail-row">
-                      <div className="detail-item">
-                        <FaMoneyBillWave className="detail-icon" />
-                        <div className="detail-content">
+                    
+                      <div className="detail-items">
+                        
+                        <div className="detail-contents">
+                          <FaMoneyBillWave className="detail-icon" />
                           <span className="detail-label">Processing Time</span>
                           <span className="detail-value">
                             {product.processing_time}
                           </span>
                         </div>
                       </div>
-                      <div className="detail-item">
-                        <FaShieldAlt className="detail-icon" />
-                        <div className="detail-content">
+                      <div className="detail-items">
+                        
+                        <div className="detail-contents">
+                          <FaShieldAlt className="detail-icon" />
                           <span className="detail-label">Security</span>
                           <span className="detail-value">
                             {product.security_type}
