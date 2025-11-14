@@ -115,7 +115,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
   const handleBankSelection = async (bankId) => {
     try {
       setIsSubmitting(true);
-      const response = await fetch(http://localhost:5000/api/loan-applications/${applicationId}/select-bank, {
+      const response = await fetch(https://loancopy-production.up.railway.app/api/loan-applications/${applicationId}/select-bank, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -332,7 +332,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                   <h2>Personal Information</h2>
                 </div>
                 <div className="form-row">
-                  <div className="form-group">
+                  <div className="form-groups">
                     <label htmlFor="firstName">First Name *</label>
                     <input
                       type="text"
@@ -344,7 +344,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                       required
                     />
                   </div>
-                  <div className="form-group">
+                  <div className="form-groups">
                     <label htmlFor="lastName">Last Name *</label>
                     <input
                       type="text"
@@ -359,7 +359,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                 </div>
 
                 <div className="form-row">
-                  <div className="form-group">
+                  <div className="form-groups">
                     <label htmlFor="email">Email *</label>
                     <input
                       type="email"
@@ -371,7 +371,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                       required
                     />
                   </div>
-                  <div className="form-group">
+                  <div className="form-groups">
                     <label htmlFor="phoneNumber">Phone Number *</label>
                     <input
                       type="tel"
@@ -393,7 +393,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                   <h2>Employment & Income</h2>
                 </div>
                 <div className="form-row">
-                  <div className="form-group">
+                  <div className="form-groups">
                     <label htmlFor="employmentStatus">Employment Status *</label>
                     <select
                       id="employmentStatus"
@@ -410,7 +410,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                       <option value="retired">Retired</option>
                     </select>
                   </div>
-                  <div className="form-group">
+                  <div className="form-groups">
                     <label htmlFor="monthlyIncome">Monthly Income *</label>
                     <input
                       type="text"
@@ -433,7 +433,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                 </div>
 
                 <div className="form-row">
-                  <div className="form-group">
+                  <div className="form-groups">
                     <label htmlFor="loanType">Loan Type *</label>
                     <select
                       id="loanType"
@@ -451,7 +451,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                       <option value="cc">CC Limit Loan</option>
                     </select>
                   </div>
-                  <div className="form-group">
+                  <div className="form-groups">
                     <label htmlFor="loanAmount">Loan Amount *</label>
                     <input
                       type="text"
@@ -470,7 +470,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                   <div className="extra-docs">
                     <h4>Upload Required Documents (Personal Loan)</h4>
                     <div className="form-row">
-                      <div className="form-group">
+                      <div className="form-groups">
                         <label>Aadhar Card Front *</label>
                         <input
                           type="file"
@@ -480,7 +480,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-group">
+                      <div className="form-groups">
                         <label>Aadhar Card Back *</label>
                         <input
                           type="file"
@@ -491,7 +491,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                         />
                       </div>
                     </div>
-                    <div className="form-group">
+                    <div className="form-groups">
                       <label>PAN Card Photo *</label>
                       <input
                         type="file"
@@ -508,7 +508,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                   <div className="extra-docs">
                     <h4>Upload Required Documents (Business Loan)</h4>
                     <div className="form-row">
-                      <div className="form-group">
+                      <div className="form-groups">
                         <label>ITR/GST/Udyam Registration *</label>
                         <input
                           type="file"
@@ -518,7 +518,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-group">
+                      <div className="form-groups">
                         <label>PAN Card Photo *</label>
                         <input
                           type="file"
@@ -528,7 +528,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-group">
+                      <div className="form-groups">
                         <label>Aadhar Card *</label>
                         <input
                           type="file"
@@ -546,7 +546,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                   <div className="extra-docs">
                     <h4>Upload Required Documents (Home Loan)</h4>
                     <div className="form-row">
-                      <div className="form-group">
+                      <div className="form-groups">
                         <label>Property Document *</label>
                         <input
                           type="file"
@@ -556,7 +556,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-group">
+                      <div className="form-groups">
                         <label>PAN Card Photo *</label>
                         <input
                           type="file"
@@ -566,7 +566,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-group">
+                      <div className="form-groups">
                         <label>Aadhar Card *</label>
                         <input
                           type="file"
@@ -584,7 +584,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                   <div className="extra-docs">
                     <h4>Upload Required Documents (Mortgage Loan)</h4>
                     <div className="form-row">
-                      <div className="form-group">
+                      <div className="form-groups">
                         <label>ITR/GST/Udyam Registration *</label>
                         <input
                           type="file"
@@ -594,7 +594,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-group">
+                      <div className="form-groups">
                         <label>PAN Card Photo *</label>
                         <input
                           type="file"
@@ -604,7 +604,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-group">
+                      <div className="form-groups">
                         <label>Aadhar Card *</label>
                         <input
                           type="file"
@@ -622,7 +622,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                   <div className="extra-docs">
                     <h4>Upload Required Documents (OD Loan)</h4>
                     <div className="form-row">
-                      <div className="form-group">
+                      <div className="form-groups">
                         <label>ITR/GST/Udyam Registration *</label>
                         <input
                           type="file"
@@ -632,7 +632,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-group">
+                      <div className="form-groups">
                         <label>PAN Card Photo *</label>
                         <input
                           type="file"
@@ -642,7 +642,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-group">
+                      <div className="form-groups">
                         <label>Aadhar Card *</label>
                         <input
                           type="file"
@@ -660,7 +660,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                   <div className="extra-docs">
                     <h4>Upload Required Documents (CC Limit Loan)</h4>
                     <div className="form-row">
-                      <div className="form-group">
+                      <div className="form-groups">
                         <label>ITR/GST/Udyam Registration *</label>
                         <input
                           type="file"
@@ -670,7 +670,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-group">
+                      <div className="form-groups">
                         <label>PAN Card Photo *</label>
                         <input
                           type="file"
@@ -680,7 +680,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-group">
+                      <div className="form-groups">
                         <label>Aadhar Card *</label>
                         <input
                           type="file"
