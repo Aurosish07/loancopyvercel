@@ -14,9 +14,7 @@ const Testimonial = () => {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // Auto slide configuration
-  const slidesToShow = 3;
+  const [slidesToShow, setSlidesToShow] = useState(3);
 
   // Fetch testimonials from backend
   useEffect(() => {
@@ -35,7 +33,7 @@ const Testimonial = () => {
       } catch (err) {
         console.error("Error fetching testimonials:", err);
         setError("Failed to load testimonials. Please try again later.");
-        // You can set default testimonials here as fallback
+        // Only 2 cards in default testimonials
         setTestimonials(getDefaultTestimonials());
       } finally {
         setLoading(false);
@@ -45,9 +43,27 @@ const Testimonial = () => {
     fetchTestimonials();
   }, []);
 
-  // Fallback default testimonials in case of error
+  // Update slidesToShow based on screen size
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      
+      if (width < 768) {
+        setSlidesToShow(1); // Mobile - 1 card
+      } else {
+        setSlidesToShow(3); // Tablet/Laptop - 3 cards
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Fallback default testimonials - ONLY 2 CARDS
   const getDefaultTestimonials = () => [
     {
+      id: 1,
       name: "Rahul Sharma",
       role: "Business Owner",
       location: "Mumbai",
@@ -57,6 +73,7 @@ const Testimonial = () => {
       borderColor: "card-border-1",
     },
     {
+      id: 2,
       name: "Priya Patel",
       role: "Home Buyer",
       location: "Delhi",
@@ -65,22 +82,21 @@ const Testimonial = () => {
       bgColor: "card-bg-2",
       borderColor: "card-border-2",
     }
+    // Only 2 cards - no more
   ];
 
   const totalSlides = testimonials.length;
 
   const nextSlide = () => {
     if (totalSlides <= slidesToShow) return;
-    setCurrentSlide((prev) => (prev + 1) % (totalSlides - slidesToShow + 1));
+    const maxSlide = Math.max(0, totalSlides - slidesToShow);
+    setCurrentSlide((prev) => (prev + 1) % (maxSlide + 1));
   };
 
   const prevSlide = () => {
     if (totalSlides <= slidesToShow) return;
-    setCurrentSlide(
-      (prev) =>
-        (prev - 1 + (totalSlides - slidesToShow + 1)) %
-        (totalSlides - slidesToShow + 1)
-    );
+    const maxSlide = Math.max(0, totalSlides - slidesToShow);
+    setCurrentSlide((prev) => (prev - 1 + (maxSlide + 1)) % (maxSlide + 1));
   };
 
   const goToSlide = (index) => {
@@ -96,7 +112,7 @@ const Testimonial = () => {
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [currentSlide, isAutoPlaying, testimonials.length]);
+  }, [currentSlide, isAutoPlaying, testimonials.length, slidesToShow]);
 
   // Show loading state
   if (loading) {
@@ -114,21 +130,8 @@ const Testimonial = () => {
     );
   }
 
-  // Show error state
-  if (error && testimonials.length === 0) {
-    return (
-      <section className="testimonials-appx">
-        <div className="container">
-          <div className="section-header-appx">
-            <div className="section-badge-appx">✨ Customer Stories</div>
-            <h2>What Our Customers <span>Say</span></h2>
-            <p>Real stories from real people who achieved their dreams with us 💭</p>
-          </div>
-          <div className="error-state">{error}</div>
-        </div>
-      </section>
-    );
-  }
+  const showSlider = testimonials.length > slidesToShow;
+  const maxSlide = Math.max(0, totalSlides - slidesToShow);
 
   return (
     <section className="testimonials-appx">
@@ -153,7 +156,7 @@ const Testimonial = () => {
         {/* Slider Container */}
         <div className="testimonial-slider-container">
           {/* Navigation Buttons - Only show if we have more slides than visible */}
-          {testimonials.length > slidesToShow && (
+          {showSlider && (
             <>
               <button
                 className="slider-nav-btn slider-prev"
@@ -236,9 +239,9 @@ const Testimonial = () => {
         </div>
 
         {/* Dots Indicator - Only show if we have more slides than visible */}
-        {testimonials.length > slidesToShow && (
+        {showSlider && maxSlide > 0 && (
           <div className="slider-dots">
-            {[...Array(totalSlides - slidesToShow + 1)].map((_, index) => (
+            {[...Array(maxSlide + 1)].map((_, index) => (
               <button
                 key={index}
                 className={`dot ${index === currentSlide ? "active" : ""}`}
