@@ -68,7 +68,7 @@ const Home = () => {
         onApplyClick={handleServiceApplyClick}
       />
       <Features />
-      <Cta />
+      {/* <Cta /> */}
       <Testimonial />
 
       <LoanPopup
