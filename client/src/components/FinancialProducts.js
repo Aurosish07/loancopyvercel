@@ -109,7 +109,7 @@ const FinancialProducts = ({ onApplyClick }) => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Card Content */}
-                <div className="card-content-modern">
+                <div className="card-content-moderns">
                   <div className="product-image-container">
                     <div className="image-background">
                       <img
@@ -134,7 +134,7 @@ const FinancialProducts = ({ onApplyClick }) => {
                       <div className="detail-items">
                         
                         <div className="detail-contents">
-                          <FaPercent className="detail-icon" />
+                        
                           <span className="detail-label">Interest Rate</span>
                           <span className="detail-value">
                             {product.interest_rate}
@@ -144,7 +144,7 @@ const FinancialProducts = ({ onApplyClick }) => {
                       <div className="detail-items">
                         
                         <div className="detail-contents">
-                          <FaClock className="detail-icon" />
+                         
                           <span className="detail-label">Tenure</span>
                           <span className="detail-value">
                             {product.tenure}
@@ -155,7 +155,7 @@ const FinancialProducts = ({ onApplyClick }) => {
                       <div className="detail-items">
                         
                         <div className="detail-contents">
-                          <FaMoneyBillWave className="detail-icon" />
+                        
                           <span className="detail-label">Processing Time</span>
                           <span className="detail-value">
                             {product.processing_time}
@@ -165,7 +165,7 @@ const FinancialProducts = ({ onApplyClick }) => {
                       <div className="detail-items">
                         
                         <div className="detail-contents">
-                          <FaShieldAlt className="detail-icon" />
+                      
                           <span className="detail-label">Security</span>
                           <span className="detail-value">
                             {product.security_type}
@@ -200,7 +200,7 @@ const FinancialProducts = ({ onApplyClick }) => {
               <FaTimes />
             </button>
             
-            <div className="loan-form-popup-content">
+            <div className="loan-form-popup-contents">
               <LoanForm 
                 preSelectedLoanType={selectedProduct?.name}
                 onClose={handleCloseLoanForm}
