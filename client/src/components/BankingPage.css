@@ -76,7 +76,7 @@
   flex-direction: column;
 }
 
-/* Loan summary */
+/* Loan summary - FIXED MOBILE LAYOUT */
 .loan-summary-card {
   background: white;
   border-radius: 20px;
@@ -94,35 +94,39 @@
   font-weight: 700;
 }
 
+/* DESKTOP: 4 columns in one row */
 .summary-details {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 50px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
   margin: 0 auto;
 }
 
 .summary-item {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 18px 0;
-  border-bottom: 2px solid #f1f5f9;
-  font-size: 1.1rem;
-}
-
-.summary-item:last-child {
-  border-bottom: none;
+  padding: 15px;
+  border: 1px solid #f1f5f9;
+  border-radius: 10px;
+  background: #f8fafc;
+  font-size: 1rem;
+  text-align: center;
+  min-height: 80px;
 }
 
 .summary-item span:first-child {
   color: #64748b;
   font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
 }
 
 .summary-item span:last-child {
   color: #1e293b;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .approved {
@@ -178,7 +182,7 @@
 }
 
 .table-row {
-  display: grid !important;
+  display: grid;
   grid-template-columns: minmax(150px, 2fr) minmax(100px, 1.5fr) minmax(80px, 1fr) minmax(120px, 1.5fr) minmax(120px, 1.5fr);
   padding: 20px 15px;
   border-bottom: 1px solid #e2e8f0;
@@ -349,7 +353,9 @@
   margin: 0;
 }
 
-/* Mobile-First Responsive Design */
+/* ========== MOBILE RESPONSIVE DESIGN ========== */
+
+/* Tablet (768px and below) */
 @media (max-width: 768px) {
   .banking-header {
     padding: 50px 15px 25px;
@@ -367,6 +373,36 @@
     padding: 30px 15px;
   }
   
+  /* Loan Summary - 2 columns per row on mobile */
+  .loan-summary-card {
+    padding: 25px;
+    margin-bottom: 30px;
+  }
+  
+  .loan-summary-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .summary-details {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .summary-item {
+    padding: 12px;
+    min-height: 70px;
+  }
+  
+  .summary-item span:first-child {
+    font-size: 0.85rem;
+  }
+  
+  .summary-item span:last-child {
+    font-size: 1rem;
+  }
+  
+  /* Banks Table */
   .banks-table {
     border-radius: 10px;
     margin-bottom: 25px;
@@ -423,22 +459,13 @@
     right: 20px;
   }
   
-  .loan-summary-card {
-    padding: 25px;
-    margin-bottom: 30px;
-  }
-  
-  .summary-details {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-  
   .banks-container h4 {
     font-size: 1.6rem;
     margin-bottom: 25px;
   }
 }
 
+/* Small Mobile (480px and below) */
 @media (max-width: 480px) {
   .banking-header {
     padding: 40px 12px 20px;
@@ -456,6 +483,36 @@
     padding: 20px 12px;
   }
   
+  /* Loan Summary - Still 2 columns but smaller */
+  .loan-summary-card {
+    padding: 20px 15px;
+    margin-bottom: 25px;
+  }
+  
+  .loan-summary-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+  
+  .summary-details {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .summary-item {
+    padding: 10px 8px;
+    min-height: 65px;
+  }
+  
+  .summary-item span:first-child {
+    font-size: 0.8rem;
+  }
+  
+  .summary-item span:last-child {
+    font-size: 0.9rem;
+  }
+  
+  /* Banks Table */
   .banks-table {
     margin-bottom: 20px;
     border-radius: 8px;
@@ -506,25 +563,6 @@
     border-radius: 4px;
   }
   
-  .loan-summary-card {
-    padding: 20px 15px;
-    margin-bottom: 25px;
-  }
-  
-  .loan-summary-card h3 {
-    font-size: 1.6rem;
-    margin-bottom: 20px;
-  }
-  
-  .summary-item {
-    padding: 12px 0;
-    font-size: 1rem;
-  }
-  
-  .summary-item span:last-child {
-    font-size: 1.1rem;
-  }
-  
   .banks-container h4 {
     font-size: 1.4rem;
     margin-bottom: 20px;
@@ -550,8 +588,27 @@
   }
 }
 
-/* Extra Small Mobile Devices */
+/* Extra Small Mobile (360px and below) */
 @media (max-width: 360px) {
+  /* Loan Summary - Still 2 columns but very compact */
+  .summary-details {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .summary-item {
+    padding: 8px 6px;
+    min-height: 60px;
+  }
+  
+  .summary-item span:first-child {
+    font-size: 0.75rem;
+  }
+  
+  .summary-item span:last-child {
+    font-size: 0.85rem;
+  }
+  
   .table-container {
     min-width: 450px;
   }
@@ -583,14 +640,448 @@
   .roi-cell {
     font-size: 0.6rem;
   }
-    .amount-cell {
-    font-size: 0.5rem;
-    margin-left: 20px;
+  
+  .amount-cell {
+    font-size: 0.6rem;
   }
   
   .select-btn {
     padding: 5px 8px;
     font-size: 0.7rem;
     max-width: 80px;
+  }
+}
+/* ========== CIBIL CHECK PAGE STYLES ========== */
+
+.cibil-check-page {
+  padding: 30px 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.cibil-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cibil-header h2 {
+  color: #1e293b;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.cibil-header p {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.cibil-form {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #374151;
+  font-size: 1rem;
+}
+
+/* FIXED INPUT STYLING - Completely working */
+.form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  background: white;
+  font-family: inherit; /* FIX: monospace se inherit */
+  letter-spacing: normal; /* FIX: Remove letter-spacing */
+  -webkit-appearance: none; /* Remove default styling */
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+  transform: translateY(-2px);
+}
+
+.form-group input::placeholder {
+  color: #9ca3af;
+}
+
+/* Better validation messages */
+.form-group small {
+  display: block;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.cibil-note {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.cibil-note p {
+  margin: 0;
+  color: #0369a1;
+  font-size: 0.9rem;
+}
+
+.cibil-check-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.cibil-check-btn:hover:not(.loading) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+}
+
+.cibil-check-btn:active {
+  transform: translateY(-1px);
+}
+
+.cibil-check-btn.loading {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.cibil-check-btn:disabled:not(.loading) {
+  background: #d1d5db;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.back-btn {
+  width: 100%;
+  padding: 14px;
+  background: #6b7280;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #4b5563;
+  transform: translateY(-2px);
+}
+
+/* CIBIL Result Page Styles */
+.cibil-result-page {
+  padding: 30px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.result-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+.result-header.approved {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+.result-header.rejected {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.result-header h2 {
+  margin: 0 0 15px 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.cibil-score-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-size: 1.2rem;
+}
+
+.score-label {
+  font-weight: 600;
+}
+
+.score-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  min-width: 80px;
+  text-align: center;
+}
+
+.score-value.good {
+  color: #10b981;
+}
+
+.score-value.poor {
+  color: #ef4444;
+}
+
+.result-details {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.success-message {
+  text-align: center;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+}
+
+.success-message p {
+  margin: 10px 0;
+  color: #166534;
+  font-size: 1.1rem;
+}
+
+.rejection-message {
+  text-align: center;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+}
+
+.rejection-message p {
+  margin: 10px 0;
+  color: #991b1b;
+  font-size: 1.1rem;
+}
+
+.loan-terms {
+  margin: 25px 0;
+}
+
+.loan-terms h4 {
+  color: #1e293b;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.terms-list {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.term-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.term-item:last-child {
+  border-bottom: none;
+}
+
+.term-item span:first-child {
+  color: #64748b;
+  font-weight: 600;
+}
+
+.term-item span:last-child {
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.score-good {
+  color: #10b981;
+  font-weight: 700;
+}
+
+.proceed-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.proceed-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.suggestions {
+  margin: 25px 0;
+  padding: 20px;
+  background: #fffbeb;
+  border: 1px solid #fef3c7;
+  border-radius: 10px;
+}
+
+.suggestions h4 {
+  color: #92400e;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.suggestions ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #92400e;
+}
+
+.suggestions li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.try-again-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.try-again-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+}
+
+/* Mobile Responsive Styles for CIBIL Pages */
+@media (max-width: 768px) {
+  .cibil-check-page,
+  .cibil-result-page {
+    padding: 20px 15px;
+  }
+  
+  .cibil-header h2 {
+    font-size: 1.6rem;
+  }
+  
+  .cibil-form {
+    padding: 25px 20px;
+  }
+  
+  .form-group input {
+    padding: 12px 14px;
+    font-size: 1rem;
+  }
+  
+  .result-header h2 {
+    font-size: 1.6rem;
+  }
+  
+  .cibil-score-display {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .score-value {
+    font-size: 2rem;
+    min-width: 70px;
+  }
+  
+  .cibil-check-btn,
+  .back-btn {
+    padding: 14px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cibil-check-page,
+  .cibil-result-page {
+    padding: 15px 10px;
+  }
+  
+  .cibil-header h2 {
+    font-size: 1.4rem;
+  }
+  
+  .cibil-form {
+    padding: 20px 15px;
+  }
+  
+  .form-group input {
+    padding: 12px;
+    font-size: 1rem;
+  }
+  
+  .result-header h2 {
+    font-size: 1.4rem;
+  }
+  
+  .score-value {
+    font-size: 1.8rem;
+    min-width: 60px;
+  }
+  
+  .cibil-check-btn,
+  .proceed-btn,
+  .try-again-btn,
+  .back-btn {
+    padding: 12px;
+    font-size: 1rem;
   }
 }
