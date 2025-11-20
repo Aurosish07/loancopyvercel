@@ -170,7 +170,7 @@
 }
 
 .table-header {
-  display: grid;
+  display: grid !important;
   grid-template-columns: minmax(150px, 2fr) minmax(100px, 1.5fr) minmax(80px, 1fr) minmax(120px, 1.5fr) minmax(120px, 1.5fr);
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
@@ -182,7 +182,7 @@
 }
 
 .table-row {
-  display: grid;
+  display: grid !important;
   grid-template-columns: minmax(150px, 2fr) minmax(100px, 1.5fr) minmax(80px, 1fr) minmax(120px, 1.5fr) minmax(120px, 1.5fr);
   padding: 20px 15px;
   border-bottom: 1px solid #e2e8f0;
