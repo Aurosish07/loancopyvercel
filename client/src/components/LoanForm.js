@@ -232,8 +232,8 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
   const TermsAndConditionsModal = () => (
     <div className="modal-overlay terms-modal-overlay">
       <div className="modal-content terms-modal">
-        <button 
-          className="modal-close-btn" 
+        <button
+          className="modal-close-btn"
           onClick={() => setShowTermsModal(false)}
         >
           &times;
@@ -246,45 +246,45 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
 
         <div className="terms-content">
           <div className="terms-section">
-    
-            <p>By applying for a loan, the applicant agrees to the following terms and conditions. Loan approval is subject to verification of the applicant’s eligibility, which includes assessment of personal, financial, and employment details, as well as creditworthiness as determined by the Company. Submission of false or misleading information may result in immediate rejection or cancellation of the loan application without notice.</p>
+
+            <p>By applying for a loan, the applicant agrees to the following terms and conditions. Loan approval is subject to verification of the applicant's eligibility, which includes assessment of personal, financial, and employment details, as well as creditworthiness as determined by the Company. Submission of false or misleading information may result in immediate rejection or cancellation of the loan application without notice.</p>
           </div>
 
           <div className="terms-section">
-          
+
             <p>A non-refundable platform fee of ₹499 shall be charged to every applicant during the loan processing stage. This fee covers administrative and verification costs and will not be refunded under any circumstances, regardless of whether the loan application is approved or rejected.</p>
           </div>
 
           <div className="terms-section">
-          
+
             <p>The loan amount, interest rate, tenure, and applicable charges will be communicated to the applicant upon approval. The Company reserves the right to modify these rates or terms at any time in accordance with its internal policies or regulatory changes. Disbursement of the loan shall occur only after successful completion of all verification processes, execution of the loan agreement, and payment of any applicable fees or charges.</p>
             <p>
-              Repayment of the loan must be made in accordance with the schedule provided in the loan agreement. Any delay or default in repayment may result in penalty charges, additional interest, and may adversely affect the borrower’s credit score. The borrower may choose to prepay or foreclose the loan, subject to the conditions and charges defined in the agreement.
+              Repayment of the loan must be made in accordance with the schedule provided in the loan agreement. Any delay or default in repayment may result in penalty charges, additional interest, and may adversely affect the borrower's credit score. The borrower may choose to prepay or foreclose the loan, subject to the conditions and charges defined in the agreement.
             </p>
           </div>
 
           <div className="terms-section">
-           
-            <p>In case of default, the Company reserves the right to initiate recovery proceedings and report the borrower’s credit performance to credit bureaus as per regulatory guidelines. All recovery-related costs and legal expenses shall be borne by the borrower.</p>
+
+            <p>In case of default, the Company reserves the right to initiate recovery proceedings and report the borrower's credit performance to credit bureaus as per regulatory guidelines. All recovery-related costs and legal expenses shall be borne by the borrower.</p>
           </div>
 
           <div className="terms-section">
-         
-            <p>The Company retains the right to amend, revise, or update these terms and conditions without prior notice. The updated version will be made available through the Company’s official communication channels.</p>
+
+            <p>The Company retains the right to amend, revise, or update these terms and conditions without prior notice. The updated version will be made available through the Company's official communication channels.</p>
           </div>
 
           <div className="terms-section">
-           
+
             <p>These terms and conditions shall be governed by and construed in accordance with the laws of India, and any dispute arising herefrom shall fall under the exclusive jurisdiction of the competent courts of India.</p>
           </div>
 
           <div className="terms-section">
-           
+
             <p>You consent to receive communications related to your loan application via email, SMS, phone calls, and other electronic means.</p>
           </div>
 
           <div className="terms-section">
-           
+
             <p>These terms and conditions are governed by the laws of India, and any disputes shall be subject to the jurisdiction of courts in Mumbai.</p>
           </div>
 
@@ -294,7 +294,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
         </div>
 
         <div className="terms-modal-footer">
-          <button 
+          <button
             className="close-terms-button"
             onClick={() => setShowTermsModal(false)}
           >
@@ -306,16 +306,16 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
   );
 
   return (
-    <div className="loan-form-container">
-      <div className="loan-form-wrapper">
+    <div className="loan-form-full-container">
+      <div className="loan-form-full-wrapper">
         {/* Terms and Conditions Modal */}
         {showTermsModal && <TermsAndConditionsModal />}
 
         {/* STEP 1: Main Form */}
         {step === "form" && (
           <>
-               <div className="loan-form-header">
-              <div className="loan-form-badge">
+            <div className="loan-form-full-header">
+              <div className="loan-form-full-badge">
                 <img src="/images/loan-icon.png" alt="Loan Icon" />
                 <span>Quick & Easy Application</span>
               </div>
@@ -323,16 +323,15 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
               <p>Fill out the form below and get approved in minutes! ⚡</p>
             </div>
 
-
-            <form onSubmit={handleSubmit} className="loan-form">
+            <form onSubmit={handleSubmit} className="loan-form-full">
               {/* Personal Information Section */}
-              <div className="form-section">
-                <div className="form-section-header">
+              <div className="form-section-full">
+                <div className="form-section-full-header">
                   <span>1</span>
                   <h2>Personal Information</h2>
                 </div>
-                <div className="form-row">
-                  <div className="form-groups">
+                <div className="form-row-full">
+                  <div className="form-group-full">
                     <label htmlFor="firstName">First Name *</label>
                     <input
                       type="text"
@@ -344,7 +343,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                       required
                     />
                   </div>
-                  <div className="form-groups">
+                  <div className="form-group-full">
                     <label htmlFor="lastName">Last Name *</label>
                     <input
                       type="text"
@@ -358,8 +357,8 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                   </div>
                 </div>
 
-                <div className="form-row">
-                  <div className="form-groups">
+                <div className="form-row-full">
+                  <div className="form-group-full">
                     <label htmlFor="email">Email *</label>
                     <input
                       type="email"
@@ -371,7 +370,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                       required
                     />
                   </div>
-                  <div className="form-groups">
+                  <div className="form-group-full">
                     <label htmlFor="phoneNumber">Phone Number *</label>
                     <input
                       type="tel"
@@ -387,13 +386,13 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
               </div>
 
               {/* Employment & Income Section */}
-              <div className="form-section">
-                <div className="form-section-header">
+              <div className="form-section-full">
+                <div className="form-section-full-header">
                   <span>2</span>
                   <h2>Employment & Income</h2>
                 </div>
-                <div className="form-row">
-                  <div className="form-groups">
+                <div className="form-row-full">
+                  <div className="form-group-full">
                     <label htmlFor="employmentStatus">Employment Status *</label>
                     <select
                       id="employmentStatus"
@@ -410,7 +409,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                       <option value="retired">Retired</option>
                     </select>
                   </div>
-                  <div className="form-groups">
+                  <div className="form-group-full">
                     <label htmlFor="monthlyIncome">Monthly Income *</label>
                     <input
                       type="text"
@@ -426,14 +425,14 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
               </div>
 
               {/* Loan Details Section */}
-              <div className="form-section">
-                <div className="form-section-header">
+              <div className="form-section-full">
+                <div className="form-section-full-header">
                   <span>3</span>
                   <h2>Loan Details</h2>
                 </div>
 
-                <div className="form-row">
-                  <div className="form-groups">
+                <div className="form-row-full">
+                  <div className="form-group-full">
                     <label htmlFor="loanType">Loan Type *</label>
                     <select
                       id="loanType"
@@ -451,7 +450,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                       <option value="cc">CC Limit Loan</option>
                     </select>
                   </div>
-                  <div className="form-groups">
+                  <div className="form-group-full">
                     <label htmlFor="loanAmount">Loan Amount *</label>
                     <input
                       type="text"
@@ -467,10 +466,10 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
 
                 {/* --- Conditional Fields Based on Loan Type --- */}
                 {formData.loanType === "personal" && (
-                  <div className="extra-docs">
+                  <div className="extra-docs-full">
                     <h4>Upload Required Documents (Personal Loan)</h4>
-                    <div className="form-row">
-                      <div className="form-groups">
+                    <div className="form-row-full">
+                      <div className="form-group-full">
                         <label>Aadhar Card Front *</label>
                         <input
                           type="file"
@@ -480,7 +479,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-groups">
+                      <div className="form-group-full">
                         <label>Aadhar Card Back *</label>
                         <input
                           type="file"
@@ -491,7 +490,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                         />
                       </div>
                     </div>
-                    <div className="form-groups">
+                    <div className="form-group-full">
                       <label>PAN Card Photo *</label>
                       <input
                         type="file"
@@ -505,10 +504,10 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                 )}
 
                 {formData.loanType === "business" && (
-                  <div className="extra-docs">
+                  <div className="extra-docs-full">
                     <h4>Upload Required Documents (Business Loan)</h4>
-                    <div className="form-row">
-                      <div className="form-groups">
+                    <div className="form-row-full">
+                      <div className="form-group-full">
                         <label>ITR/GST/Udyam Registration *</label>
                         <input
                           type="file"
@@ -518,7 +517,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-groups">
+                      <div className="form-group-full">
                         <label>PAN Card Photo *</label>
                         <input
                           type="file"
@@ -528,7 +527,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-groups">
+                      <div className="form-group-full">
                         <label>Aadhar Card *</label>
                         <input
                           type="file"
@@ -543,10 +542,10 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                 )}
 
                 {formData.loanType === "home" && (
-                  <div className="extra-docs">
+                  <div className="extra-docs-full">
                     <h4>Upload Required Documents (Home Loan)</h4>
-                    <div className="form-row">
-                      <div className="form-groups">
+                    <div className="form-row-full">
+                      <div className="form-group-full">
                         <label>Property Document *</label>
                         <input
                           type="file"
@@ -556,7 +555,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-groups">
+                      <div className="form-group-full">
                         <label>PAN Card Photo *</label>
                         <input
                           type="file"
@@ -566,7 +565,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-groups">
+                      <div className="form-group-full">
                         <label>Aadhar Card *</label>
                         <input
                           type="file"
@@ -581,10 +580,10 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                 )}
 
                 {formData.loanType === "mortage" && (
-                  <div className="extra-docs">
+                  <div className="extra-docs-full">
                     <h4>Upload Required Documents (Mortgage Loan)</h4>
-                    <div className="form-row">
-                      <div className="form-groups">
+                    <div className="form-row-full">
+                      <div className="form-group-full">
                         <label>ITR/GST/Udyam Registration *</label>
                         <input
                           type="file"
@@ -594,7 +593,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-groups">
+                      <div className="form-group-full">
                         <label>PAN Card Photo *</label>
                         <input
                           type="file"
@@ -604,7 +603,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-groups">
+                      <div className="form-group-full">
                         <label>Aadhar Card *</label>
                         <input
                           type="file"
@@ -619,10 +618,10 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                 )}
 
                 {formData.loanType === "od" && (
-                  <div className="extra-docs">
+                  <div className="extra-docs-full">
                     <h4>Upload Required Documents (OD Loan)</h4>
-                    <div className="form-row">
-                      <div className="form-groups">
+                    <div className="form-row-full">
+                      <div className="form-group-full">
                         <label>ITR/GST/Udyam Registration *</label>
                         <input
                           type="file"
@@ -632,7 +631,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-groups">
+                      <div className="form-group-full">
                         <label>PAN Card Photo *</label>
                         <input
                           type="file"
@@ -642,7 +641,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-groups">
+                      <div className="form-group-full">
                         <label>Aadhar Card *</label>
                         <input
                           type="file"
@@ -657,10 +656,10 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                 )}
 
                 {formData.loanType === "cc" && (
-                  <div className="extra-docs">
+                  <div className="extra-docs-full">
                     <h4>Upload Required Documents (CC Limit Loan)</h4>
-                    <div className="form-row">
-                      <div className="form-groups">
+                    <div className="form-row-full">
+                      <div className="form-group-full">
                         <label>ITR/GST/Udyam Registration *</label>
                         <input
                           type="file"
@@ -670,7 +669,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-groups">
+                      <div className="form-group-full">
                         <label>PAN Card Photo *</label>
                         <input
                           type="file"
@@ -680,7 +679,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                           required
                         />
                       </div>
-                      <div className="form-groups">
+                      <div className="form-group-full">
                         <label>Aadhar Card *</label>
                         <input
                           type="file"
@@ -695,7 +694,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                 )}
               </div>
 
-              <button type="submit" className="submit-button">
+              <button type="submit" className="submit-button-full">
                 Submit Application 🚀
               </button>
             </form>
@@ -704,49 +703,54 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
 
         {/* STEP 2: Loan Approval Page - DIRECT TO PAYMENT */}
         {step === "approval" && (
-          <div className="modal-overlay">
-            <div className="modal-content approval-modal">
-              <button className="modal-close-btn" onClick={resetForm}>
+          <div className="modal-overlay-full">
+            <div className="modal-content-full approval-modal-full">
+              {/* <button className="modal-close-btn-full" onClick={resetForm}>
                 &times;
-              </button>
+              </button> */}
 
-              <div className="modal-header">
+              <div className="modal-header-full">
                 <h2>Loan Approved! 🎉</h2>
-                <div className="modal-gradient-border"></div>
+                <div className="modal-gradient-border-full"></div>
               </div>
 
-              <div className="approval-content">
-                <div className="approval-badge">
-                  <div className="approval-icon">✅</div>
-                  <h3>Congratulations! Your Loan {formData.loanAmount} is Pre-Approved</h3>
+              <div className="approval-content-full">
+                <div className="approval-badge-full">
+                  <div className="approval-icon-full">✅</div>
+                  <h3>
+                    Congratulations! Your Loan ₹
+                    <span className="loan-amount">{formData.loanAmount}</span>
+                     - is PreApproved
+                  </h3>
                 </div>
 
-                <div className="loan-details-card">
-                  <div className="loan-detail-item">
-                    <span className="detail-label">Requested Amount:</span>
-                    <span className="detail-value">{formData.loanAmount}</span>
+                <div className="loan-details-card-full">
+                  <div className="loan-detail-item-full">
+                    <span className="detail-label-full">Requested Amount:</span>
+                    <span className="detail-value-full">{formData.loanAmount}</span>
                   </div>
-                  <div className="loan-detail-item">
-                    <span className="detail-label">Approved Amount:</span>
-                    <span className="detail-value approved">₹{approvedAmount.toLocaleString()}</span>
+                  <div className="loan-detail-item-full">
+                    <span className="detail-label-full">Approved Amount:</span>
+                    <span className="detail-value-full approved">₹{approvedAmount.toLocaleString()}</span>
                   </div>
-                  <div className="loan-detail-item">
-                    <span className="detail-label">Loan Type:</span>
-                    <span className="detail-value">{formData.loanType}</span>
+                  <div className="loan-detail-item-full">
+                    <span className="detail-label-full">Loan Type:</span>
+                    <span className="detail-value-full">{formData.loanType}</span>
                   </div>
                 </div>
-                <div className="terms-agreement">
-                  <label className="checkbox-label">
+
+                <div className="terms-agreement-full">
+                  <label className="checkbox-label-full">
                     <input
                       type="checkbox"
                       checked={agreed}
                       onChange={(e) => setAgreed(e.target.checked)}
-                      className="terms-checkbox"
+                      className="terms-checkbox-full"
                     />
-                    <span className="checkbox-text">
+                    <span className="checkbox-text-full">
                       I have read and agree to all{" "}
-                      <span 
-                        className="terms-link"
+                      <span
+                        className="terms-link-full"
                         onClick={() => setShowTermsModal(true)}
                       >
                         terms & conditions
@@ -754,10 +758,9 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                     </span>
                   </label>
                 </div>
-                
-                {/* ✅ DIRECT PAYMENT BUTTON - NO EXTRA STEP */}
+
                 <button
-                  className={`proceed-button ${!agreed ? "disabled" : ""}`}
+                  className={`proceed-button-full ${!agreed ? "disabled" : ""}`}
                   disabled={!agreed}
                   onClick={handlePayment}
                 >
@@ -770,49 +773,49 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
 
         {/* STEP 3: Success Page with Add Bank */}
         {step === "success" && (
-          <div className="modal-overlay">
-            <div className="modal-content success-modal">
-              <button className="modal-close-btn" onClick={resetForm}>
+          <div className="modal-overlay-full">
+            <div className="modal-content-full success-modal-full">
+              <button className="modal-close-btn-full" onClick={resetForm}>
                 &times;
               </button>
 
-              <div className="modal-header">
+              <div className="modal-header-full">
                 <h2>Payment Successful! 🎉</h2>
-                <div className="modal-gradient-border"></div>
+                <div className="modal-gradient-border-full"></div>
               </div>
 
-              <div className="success-content">
-                <div className="success-badge">
-                  <div className="success-icon">✅</div>
+              <div className="success-content-full">
+                <div className="success-badge-full">
+                  <div className="success-icon-full">✅</div>
                   <h3>Payment Completed Successfully</h3>
                 </div>
 
-                <div className="application-summary">
+                <div className="application-summary-full">
                   <h4>Application Summary:</h4>
-                  <div className="summary-item">
+                  <div className="summary-item-full">
                     <span>Loan Amount:</span>
                     <span>₹{approvedAmount.toLocaleString()}</span>
                   </div>
-                  <div className="summary-item">
+                  <div className="summary-item-full">
                     <span>Loan Type:</span>
                     <span>{formData.loanType}</span>
                   </div>
-                  <div className="summary-item">
+                  <div className="summary-item-full">
                     <span>Application ID:</span>
                     <span>#{applicationId || 'Generating...'}</span>
                   </div>
-                  <div className="summary-item">
+                  <div className="summary-item-full">
                     <span>CIBIL Status:</span>
                     <span className="status-approved">Approved ✅</span>
                   </div>
                 </div>
 
-                <div className="next-steps">
+                <div className="next-steps-full">
                   <h4>Next Step: Select Bank</h4>
                   <p>Choose your preferred bank for loan disbursement.</p>
 
                   <button
-                    className="add-bank-button"
+                    className="add-bank-button-full"
                     onClick={() => {
                       console.log("🏦 Moving to banking page with:", {
                         applicationId: applicationId,
@@ -829,94 +832,94 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
           </div>
         )}
 
-        {/* STEP 4: Banking Page */}
-        {step === "banking" && (
-          <div className="modal-overlay">
-            <div className="modals-content banking-modal-large">
-              <button className="modal-close-btn" onClick={() => setStep("success")}>
-                &times;
-              </button>
+        {/* // STEP 4: Banking Page */}
+{step === "banking" && (
+  <div className="modal-overlay-full">
+    <div className="modals-content-full banking-modal-large-full">
+      <button className="modal-close-btn-full" onClick={() => setStep("success")}>
+        &times;
+      </button>
 
-              <div className="modal-header">
-                <h2>Select Your Bank 🏦</h2>
-                <div className="modal-gradient-border"></div>
-              </div>
+      <div className="modal-header-full">
+        <h2>Select Your Bank & CIBIL Check 🏦</h2>
+        <div className="modal-gradient-border-full"></div>
+      </div>
 
-              <div className="banking-modal-content">
-                <BankingPage
-                  applicationId={applicationId}
-                  loanData={{
-                    loanAmount: approvedAmount,
-                    loanType: formData.loanType,
-                    monthlyIncome: formData.monthlyIncome,
-                    employmentStatus: formData.employmentStatus
-                  }}
-                  onBack={() => setStep("success")}
-                  onBankSelect={(bank) => {
-                    console.log("Bank selected:", bank);
-                    setSelectedBank(bank);
-                    setStep("final");
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-        )}
+      <div className="banking-modal-content-full">
+        <BankingPage
+          applicationId={applicationId}
+          loanData={{
+            loanAmount: approvedAmount,
+            loanType: formData.loanType,
+            monthlyIncome: formData.monthlyIncome,
+            employmentStatus: formData.employmentStatus
+          }}
+          onBack={() => setStep("success")}
+          onBankSelect={(bank) => {
+            console.log("Bank selected and CIBIL approved:", bank);
+            setSelectedBank(bank);
+            setStep("final");
+          }}
+        />
+      </div>
+    </div>
+  </div>
+)}
 
         {/* STEP 5: Final Approval Page */}
         {step === "final" && selectedBank && (
-          <div className="modal-overlay">
-            <div className="modal-content final-modal">
-              <button className="modal-close-btn" onClick={resetForm}>
+          <div className="modal-overlay-full">
+            <div className="modal-content-full final-modal-full">
+              <button className="modal-close-btn-full" onClick={resetForm}>
                 &times;
               </button>
 
-              <div className="modal-header">
+              <div className="modal-header-full">
                 <h2>Loan Process Complete! 🎉</h2>
-                <div className="modal-gradient-border"></div>
+                <div className="modal-gradient-border-full"></div>
               </div>
 
-              <div className="final-content">
-                <div className="final-badge">
-                  <div className="final-icon">✅</div>
+              <div className="final-content-full">
+                <div className="final-badge-full">
+                  <div className="final-icon-full">✅</div>
                   <h3>Your Loan is Fully Approved!</h3>
                 </div>
 
-                <div className="final-details">
-                  <div className="detail-card">
+                <div className="final-details-full">
+                  <div className="detail-card-full">
                     <h4>Bank Details</h4>
-                    <div className="detail-item">
+                    <div className="detail-item-full">
                       <span>Selected Bank:</span>
                       <span>{selectedBank.name}</span>
                     </div>
-                    <div className="detail-item">
+                    <div className="detail-item-full">
                       <span>ROI Range:</span>
                       <span>{selectedBank.roi_min}% - {selectedBank.roi_max}%</span>
                     </div>
-                    <div className="detail-item">
+                    <div className="detail-item-full">
                       <span>Processing Time:</span>
                       <span>{selectedBank.processing_time}</span>
                     </div>
                   </div>
 
-                  <div className="detail-card">
+                  <div className="detail-card-full">
                     <h4>Loan Details</h4>
-                    <div className="detail-item">
+                    <div className="detail-item-full">
                       <span>Approved Amount:</span>
                       <span>₹{approvedAmount.toLocaleString()}</span>
                     </div>
-                    <div className="detail-item">
+                    <div className="detail-item-full">
                       <span>CIBIL Score:</span>
                       <span>{cibilScore} (Approved ✅)</span>
                     </div>
-                    <div className="detail-item">
+                    <div className="detail-item-full">
                       <span>Application ID:</span>
                       <span>#{applicationId}</span>
                     </div>
                   </div>
                 </div>
 
-                <button className="complete-button" onClick={resetForm}>
+                <button className="complete-button-full" onClick={resetForm}>
                   Apply for Another Loan
                 </button>
               </div>
