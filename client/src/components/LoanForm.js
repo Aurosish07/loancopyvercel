@@ -404,7 +404,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                       <option value="">Select status</option>
                       <option value="employed">Employed</option>
                       <option value="self-employed">Self-Employed</option>
-                      <option value="unemployed">Unemployed</option>
+                      <option value="unemployed">Business</option>
                       <option value="student">Student</option>
                       <option value="retired">Retired</option>
                     </select>
@@ -804,10 +804,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                     <span>Application ID:</span>
                     <span>#{applicationId || 'Generating...'}</span>
                   </div>
-                  <div className="summary-item-full">
-                    <span>CIBIL Status:</span>
-                    <span className="status-approved">Approved ✅</span>
-                  </div>
+                  
                 </div>
 
                 <div className="next-steps-full">
@@ -932,3 +929,4 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
 };
 
 export default LoanForm;
+
