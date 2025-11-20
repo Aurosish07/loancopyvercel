@@ -1,7 +1,7 @@
 /* Hero.css */
 .hero-section {
   width: 100%;
-  padding: 20px;
+  padding: 10px;
   background: linear-gradient(135deg, #9810fa 0%, #f6339a 100%);
   border-radius: 17px;
   /* Add margin-top to push it below navbar */
