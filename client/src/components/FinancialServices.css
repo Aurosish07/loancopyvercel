@@ -1,68 +1,76 @@
 /* src/components/Financialservices.css */
 .financial-services-modern {
-  padding: 10px 0;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 30px 8px 10px;
+  box-sizing: border-box;
   position: relative;
-  border-radius: 18px;  
+  border-radius: 16px;  
 }
 
 .section-header-modern {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+  padding: 0 8px;
 }
 
 .section-badge {
   display: inline-block;
   background: linear-gradient(90deg, #FFEDD4 0%, #FEF9C2 100%);
   color: #CA3500;
-  padding: 10px 25px;
+  padding: 8px 20px;
   border: 1.6px solid #FFB86A;
   border-radius: 30px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  font-size: 16px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+  letter-spacing: 0.8px;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  margin-bottom: 12px;
 }
 
 .section-header-modern h2 {
-  font-size: 48px;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #0A0A0A;
-  margin: 15px 0;
-  line-height: 1;
+  margin: 12px 0;
+  line-height: 1.1;
 }
 
 .section-header-modern span {
   background: linear-gradient(90deg, #9810FA 0%, #E60076 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text; /* for Firefox */
+  background-clip: text;
 }
 
 .section-header-modern p {
-  font-size: 20px;
+  font-size: 1rem;
   color: #4A5565;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.5;
   font-weight: 400;
-  max-width: 600px;
+  max-width: 500px;
 }
 
+/* Services Grid - Full Width with 4 cards on tablet */
 .services-grid-modern {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-  margin-bottom: 60px;
-  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 40px;
+  width: 100%;
+  padding: 0 8px;
+  box-sizing: border-box;
 }
 
 .service-card-modern {
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: -8px -8px 25px rgba(0, 0, 0, 0.1),
-              8px 8px 25px rgba(0, 0, 0, 0.05);
+  box-shadow: -6px -6px 20px rgba(0, 0, 0, 0.08),
+              6px 6px 20px rgba(0, 0, 0, 0.03);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border: 1px solid #f1f5f9;
   position: relative;
@@ -71,20 +79,19 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 320px;
-  min-height: 380px;
+  min-height: 320px;
 }
 
 .service-card-modern:hover {
-  transform: translateY(-8px);
-  box-shadow: -12px -12px 30px rgba(0, 0, 0, 0.15),
-              12px 12px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-6px);
+  box-shadow: -8px -8px 25px rgba(0, 0, 0, 0.12),
+              8px 8px 25px rgba(0, 0, 0, 0.06);
 }
 
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -93,44 +100,61 @@
 }
 
 .card-content-modern {
-  height: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  padding: 0;
 }
 
-/* Image Section - REMOVED */
+/* Service Image Container */
+.service-image-container {
+  height: 100px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
 
 /* Content Section - Compact */
 .service-info {
-  padding: 15px 15px 10px 15px;
-  flex-shrink: 0;
+  padding: 12px 12px 8px 12px;
   text-align: center;
-  margin-top: 15%;
+  flex-shrink: 0;
 }
 
 .service-info h3 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #1a202c;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   line-height: 1.3;
 }
 
 .service-description {
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   color: #718096;
   line-height: 1.4;
   margin: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-/* Pricing & Stats - Compact */
+/* Pricing & Stats - SINGLE LINE LAYOUT */
 .pricing-section {
-  padding: 10px 15px;
+  padding: 8px 12px;
   border-top: 1px solid #e2e8f0;
   flex-shrink: 0;
   margin-top: auto;
@@ -138,27 +162,35 @@
 
 .service-stats {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
   gap: 8px;
+  width: 100%;
 }
 
 .stat-item {
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 0.7rem;
+  gap: 4px;
+  font-size: 0.68rem;
   color: #4a5568;
+  white-space: nowrap;
+  flex: 1;
+  justify-content: center;
 }
 
 .stat-icon {
   color: #667eea;
   font-size: 0.65rem;
+  flex-shrink: 0;
 }
 
 /* Card Actions - Compact */
 .card-actions-modern {
-  padding: 12px 15px;
+  padding: 10px 12px;
   flex-shrink: 0;
+  background: white;
+  border-top: 1px solid #f1f5f9;
 }
 
 .btn-primary-modern {
@@ -166,284 +198,484 @@
   background: linear-gradient(90deg, #9810FA 0%, #E60076 50%, #F54900 100%);
   color: white;
   border: none;
-  padding: 10px 16px;
-  border-radius: 20px;
+  padding: 8px 12px;
+  border-radius: 12px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  font-size: 0.85rem;
-  min-height: 40px;
+  gap: 5px;
+  font-size: 0.8rem;
+  min-height: 36px;
 }
 
 .btn-primary-modern:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 5px 15px rgba(152, 16, 250, 0.4);
 }
 
 .arrow-icon {
   transition: transform 0.3s ease;
+  font-size: 0.75rem;
 }
 
 .btn-primary-modern:hover .arrow-icon {
   transform: translateX(3px);
 }
 
-/* Responsive Design - 2 cards per row on mobile */
-@media (max-width: 1024px) {
-  .services-grid-modern {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
-    gap: 25px;
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+  .financial-services-modern {
+    padding: 35px 15px 10px;
   }
   
-  .section-header-modern {
-    margin-bottom: 50px;
-  }
-}
-
-@media (max-width: 768px) {
-  .financial-services-modern {
-    padding: 40px 0;
-  }
-
-  .section-header-modern h2 {
-    font-size: 2.2rem;
-  }
-
-  .section-header-modern p {
-    font-size: 1rem;
-    padding: 0 20px;
-  }
-
   .services-grid-modern {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     padding: 0 15px;
   }
-
+  
   .service-card-modern {
-    max-width: 100%;
-    min-height: 350px;
-    margin: 0;
+    min-height: 340px;
   }
-
-  .service-info h3 {
-    font-size: 1.1rem;
-  }
-
-  .service-description {
-    font-size: 0.75rem;
+  
+  .stat-item {
+    font-size: 0.7rem;
+    gap: 5px;
   }
 }
 
-@media (max-width: 640px) {
+/* Desktop (1024px - 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
   .services-grid-modern {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    padding: 0 10px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    padding: 0 12px;
   }
-
+  
   .service-card-modern {
-    min-height: 320px;
-    border-radius: 16px;
+    min-height: 330px;
   }
-
-  .service-info {
-    padding: 12px 10px 8px 10px;
-  }
-
-  .service-info h3 {
-    font-size: 1rem;
-    margin-bottom: 6px;
-  }
-
-  .service-description {
-    font-size: 0.7rem;
-    -webkit-line-clamp: 3;
-  }
-
-  .pricing-section {
-    padding: 8px 10px;
-  }
-
+  
   .stat-item {
-    font-size: 0.65rem;
+    font-size: 0.68rem;
     gap: 4px;
   }
+}
 
+/* Tablet (768px - 1023px) - 4 CARDS PER ROW */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .financial-services-modern {
+    padding: 30px 6px 10px;
+  }
+  
+  .section-header-modern {
+    margin-bottom: 35px;
+    padding: 0 6px;
+  }
+  
+  .section-header-modern h2 {
+    font-size: 2.2rem;
+  }
+  
+  .section-header-modern p {
+    font-size: 0.95rem;
+  }
+  
+  .services-grid-modern {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding: 0 6px;
+  }
+  
+  .service-card-modern {
+    min-height: 320px;
+    border-radius: 14px;
+  }
+  
+  .service-image-container {
+    height: 90px;
+  }
+  
+  .service-info {
+    padding: 10px 10px 6px 10px;
+  }
+  
+  .service-info h3 {
+    font-size: 0.95rem;
+  }
+  
+  .service-description {
+    font-size: 0.7rem;
+  }
+  
+  .pricing-section {
+    padding: 6px 10px;
+  }
+  
+  .service-stats {
+    gap: 6px;
+  }
+  
+  .stat-item {
+    font-size: 0.65rem;
+    gap: 3px;
+  }
+  
   .stat-icon {
     font-size: 0.6rem;
   }
-
+  
   .card-actions-modern {
-    padding: 10px 10px;
+    padding: 8px 10px;
   }
-
+  
   .btn-primary-modern {
-    padding: 8px 12px;
-    font-size: 0.8rem;
-    min-height: 36px;
-    border-radius: 18px;
+    padding: 7px 10px;
+    font-size: 0.78rem;
+    min-height: 34px;
   }
 }
 
-@media (max-width: 480px) {
+/* Mobile (577px - 767px) - 2 CARDS PER ROW */
+@media (min-width: 577px) and (max-width: 767px) {
+  .financial-services-modern {
+    padding: 25px 4px 10px;
+  }
+  
+  .section-header-modern {
+    margin-bottom: 30px;
+    padding: 0 4px;
+  }
+  
   .section-header-modern h2 {
     font-size: 1.8rem;
   }
-
+  
+  .section-header-modern p {
+    font-size: 0.85rem;
+  }
+  
   .section-badge {
     font-size: 0.8rem;
-    padding: 8px 20px;
+    padding: 6px 16px;
   }
-
+  
   .services-grid-modern {
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    padding: 0 8px;
+    gap: 10px;
+    padding: 0 4px;
   }
-
+  
   .service-card-modern {
     min-height: 300px;
+    border-radius: 12px;
   }
-
+  
+  .service-image-container {
+    height: 80px;
+  }
+  
   .service-info {
-    padding: 10px 8px 6px 8px;
+    padding: 8px 8px 4px 8px;
   }
-
+  
   .service-info h3 {
     font-size: 0.9rem;
   }
-
+  
   .service-description {
-    font-size: 0.65rem;
-    -webkit-line-clamp: 2;
+    font-size: 0.68rem;
   }
-
+  
+  .pricing-section {
+    padding: 5px 8px;
+  }
+  
+  .service-stats {
+    gap: 5px;
+  }
+  
+  .stat-item {
+    font-size: 0.62rem;
+    gap: 3px;
+  }
+  
+  .stat-icon {
+    font-size: 0.58rem;
+  }
+  
+  .card-actions-modern {
+    padding: 6px 8px;
+  }
+  
   .btn-primary-modern {
     font-size: 0.75rem;
-    padding: 6px 10px;
+    padding: 6px 8px;
     min-height: 32px;
+    border-radius: 10px;
   }
 }
 
-@media (max-width: 360px) {
+/* Small Mobile (481px - 576px) */
+@media (min-width: 481px) and (max-width: 576px) {
+  .financial-services-modern {
+    padding: 20px 2px 10px;
+  }
+  
+  .section-header-modern {
+    padding: 0 2px;
+  }
+  
+  .section-header-modern h2 {
+    font-size: 1.6rem;
+  }
+  
+  .section-header-modern p {
+    font-size: 0.8rem;
+  }
+  
   .services-grid-modern {
-    grid-template-columns: 1fr;
-    gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 0 2px;
   }
   
   .service-card-modern {
     min-height: 280px;
-    max-width: 280px;
-    margin: 0 auto;
+    border-radius: 10px;
+  }
+  
+  .service-image-container {
+    height: 70px;
+  }
+  
+  .service-info {
+    padding: 6px 6px 3px 6px;
+  }
+  
+  .service-info h3 {
+    font-size: 0.85rem;
+  }
+  
+  .service-description {
+    font-size: 0.65rem;
+  }
+  
+  .pricing-section {
+    padding: 4px 6px;
+  }
+  
+  .service-stats {
+    gap: 4px;
+  }
+  
+  .stat-item {
+    font-size: 0.6rem;
+    gap: 2px;
+  }
+  
+  .stat-icon {
+    font-size: 0.55rem;
+  }
+  
+  .card-actions-modern {
+    padding: 5px 6px;
+  }
+  
+  .btn-primary-modern {
+    font-size: 0.72rem;
+    padding: 5px 6px;
+    min-height: 30px;
+    border-radius: 8px;
   }
 }
 
-/* Loan Details Section Styles (keep existing) */
-.detail-row {
-  display: flex;
-  justify-content: space-between;
+/* Extra Small Mobile (320px - 480px) */
+@media (min-width: 320px) and (max-width: 480px) {
+  .financial-services-modern {
+    padding: 15px 1px 10px;
+  }
+  
+  .section-header-modern {
+    margin-bottom: 20px;
+    padding: 0 1px;
+  }
+  
+  .section-header-modern h2 {
+    font-size: 1.4rem;
+  }
+  
+  .section-header-modern p {
+    font-size: 0.75rem;
+  }
+  
+  .section-badge {
+    font-size: 0.75rem;
+    padding: 5px 14px;
+  }
+  
+  .services-grid-modern {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    padding: 0 1px;
+  }
+  
+  .service-card-modern {
+    min-height: 260px;
+    border-radius: 8px;
+  }
+  
+  .service-image-container {
+    height: 60px;
+  }
+  
+  .service-info {
+    padding: 4px 4px 2px 4px;
+  }
+  
+  .service-info h3 {
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+  }
+  
+  .service-description {
+    font-size: 0.62rem;
+    -webkit-line-clamp: 2;
+  }
+  
+  .pricing-section {
+    padding: 3px 4px;
+  }
+  
+  .service-stats {
+    gap: 3px;
+  }
+  
+  .stat-item {
+    font-size: 0.58rem;
+    gap: 2px;
+  }
+  
+  .stat-icon {
+    font-size: 0.52rem;
+  }
+  
+  .card-actions-modern {
+    padding: 4px 4px;
+  }
+  
+  .btn-primary-modern {
+    font-size: 0.7rem;
+    padding: 4px 5px;
+    min-height: 28px;
+    border-radius: 6px;
+    gap: 3px;
+  }
+  
+  .arrow-icon {
+    font-size: 0.65rem;
+  }
 }
 
-.detail-row:last-child {
-  margin-bottom: 0;
+/* Ultra Small Mobile (below 320px) */
+@media (max-width: 319px) {
+  .services-grid-modern {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 0 10px;
+  }
+  
+  .service-card-modern {
+    min-height: 240px;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+  
+  .service-stats {
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .stat-item {
+    font-size: 0.6rem;
+    justify-content: center;
+  }
 }
 
-.detail-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 1;
-}
-
-.detail-icon {
-  color: #667eea;
-  font-size: 1rem;
-  flex-shrink: 0;
-}
-
-.detail-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.detail-label {
-  font-size: 0.75rem;
-  color: #718096;
-  font-weight: 500;
-  margin-bottom: 2px;
-}
-
-.detail-value {
-  font-size: 0.9rem;
-  color: #2d3748;
-  font-weight: 600;
-}
-
-/* Loan Form Popup Styles (keep existing) */
+/* Loan Form Popup Styles */
 .loan-form-popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   z-index: 1000;
-  padding: 20px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .loan-form-popup-container {
   background: white;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  max-width: 90vw;
   width: 100%;
-  max-width: 800px;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  animation: popupSlideIn 0.3s ease-out;
-}
-
-@keyframes popupSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-50px) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
 }
 
 .popup-close-btn {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background: #f8f9fa;
+  top: 10px;
+  right: 10px;
+  background: #f7fafc;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 18px;
-  color: #666;
-  z-index: 10;
+  color: #4a5568;
   transition: all 0.3s ease;
+  z-index: 10;
 }
 
 .popup-close-btn:hover {
-  background: #e9ecef;
-  color: #333;
-  transform: rotate(90deg);
+  background: #667eea;
+  color: white;
+}
+
+.loan-form-popup-content {
+  padding: 8px;
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  .service-card-modern:hover {
+    transform: none;
+  }
+  
+  .btn-primary-modern:hover {
+    transform: none;
+  }
+  
+  .service-card-modern:active {
+    transform: scale(0.98);
+  }
+  
+  .btn-primary-modern:active {
+    transform: scale(0.98);
+  }
 }
