@@ -11,6 +11,13 @@ const BankingPage = ({
   const [banks, setBanks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedBank, setSelectedBank] = useState(null);
+  const [step, setStep] = useState('bank-selection');
+  const [cibilData, setCibilData] = useState({
+    aadharNumber: '',
+    panNumber: ''
+  });
+  const [cibilScore, setCibilScore] = useState(null);
+  const [isCibilChecking, setIsCibilChecking] = useState(false);
   
   const location = useLocation();
   const navigate = useNavigate();
@@ -60,33 +67,100 @@ const BankingPage = ({
     setSelectedBank(bank);
   };
 
-  const confirmBankSelection = async () => {
+  const proceedToCibilCheck = () => {
     if (!selectedBank || !finalApplicationId) {
       alert('Please select a bank and ensure application ID is available');
       return;
     }
+    setStep('cibil-check');
+  };
 
-    console.log("🎯 DEMO MODE: Bank selection successful", {
-      applicationId: finalApplicationId,
-      bankId: selectedBank.id,
-      bankName: selectedBank.name,
-      timestamp: new Date().toISOString()
-    });
+  // COMPLETELY FIXED INPUT HANDLER
+  const handleCibilInputChange = (e) => {
+    const { name, value } = e.target;
     
-    alert(`✅ ${selectedBank.name} selected successfully!\n\nYour loan will be disbursed within ${selectedBank.processing_time}.`);
+    console.log(`🔄 Input changed: ${name} = "${value}"`); // Debug log
     
-    if (onBankSelect) {
-      onBankSelect(selectedBank);
-    } else {
-      navigate('/application-success', {
-        state: {
-          applicationId: finalApplicationId,
-          bankName: selectedBank.name,
-          roiRange: `${selectedBank.roi_min}% - ${selectedBank.roi_max}%`,
-          processingTime: selectedBank.processing_time,
-          loanAmount: finalLoanData?.loanAmount
-        }
+    if (name === 'aadharNumber') {
+      // Simple number filtering
+      const numbersOnly = value.replace(/\D/g, '');
+      console.log(`📊 Aadhar filtered: "${value}" -> "${numbersOnly}"`);
+      
+      setCibilData(prev => ({
+        ...prev,
+        [name]: numbersOnly
+      }));
+    } 
+    else if (name === 'panNumber') {
+      // Simple uppercase and alphanumeric filtering
+      const upperCase = value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+      console.log(`📊 PAN filtered: "${value}" -> "${upperCase}"`);
+      
+      setCibilData(prev => ({
+        ...prev,
+        [name]: upperCase
+      }));
+    }
+  };
+
+  // CIBIL Check Simulation
+  const performCibilCheck = async () => {
+    if (!cibilData.aadharNumber || !cibilData.panNumber) {
+      alert('Please enter both Aadhar and PAN numbers');
+      return;
+    }
+
+    if (cibilData.aadharNumber.length !== 12) {
+      alert('Please enter valid 12-digit Aadhar number');
+      return;
+    }
+
+    if (cibilData.panNumber.length !== 10) {
+      alert('Please enter valid 10-character PAN number');
+      return;
+    }
+
+    setIsCibilChecking(true);
+
+    // Simulate API call delay
+    await new Promise(resolve => setTimeout(resolve, 3000));
+
+    // Generate random CIBIL score between 300-900
+    const randomScore = Math.floor(Math.random() * (900 - 300 + 1)) + 300;
+    setCibilScore(randomScore);
+    
+    setIsCibilChecking(false);
+    setStep('result');
+  };
+
+  const handleFinalApproval = () => {
+    if (cibilScore >= 650) {
+      console.log("🎯 CIBIL APPROVED:", {
+        applicationId: finalApplicationId,
+        bankId: selectedBank.id,
+        bankName: selectedBank.name,
+        cibilScore: cibilScore,
+        timestamp: new Date().toISOString()
       });
+      
+      if (onBankSelect) {
+        onBankSelect(selectedBank);
+      } else {
+        navigate('/application-success', {
+          state: {
+            applicationId: finalApplicationId,
+            bankName: selectedBank.name,
+            roiRange: `${selectedBank.roi_min}% - ${selectedBank.roi_max}%`,
+            processingTime: selectedBank.processing_time,
+            loanAmount: finalLoanData?.loanAmount,
+            cibilScore: cibilScore,
+            status: 'approved'
+          }
+        });
+      }
+    } else {
+      alert(`❌ Loan Rejected! Your CIBIL score (${cibilScore}) is below the minimum required (650). Please try again after improving your credit score.`);
+      setStep('bank-selection');
     }
   };
 
@@ -100,6 +174,203 @@ const BankingPage = ({
     );
   }
 
+  // SIMPLIFIED CIBIL CHECK COMPONENT
+  const CibilCheckPage = () => (
+    <div className="cibil-check-page">
+      <div className="cibil-header">
+        <h2>CIBIL Score Verification</h2>
+        <p>Enter your details for instant CIBIL check</p>
+      </div>
+
+      <div className="cibil-form">
+        <div className="form-group">
+          <label htmlFor="aadharNumber">Aadhar Number *</label>
+          <input
+            type="text"
+            id="aadharNumber"
+            name="aadharNumber"
+            placeholder="Enter 12-digit Aadhar number"
+            value={cibilData.aadharNumber}
+            onChange={handleCibilInputChange}
+            style={{
+              width: '100%',
+              padding: '12px',
+              border: '2px solid #d1d5db',
+              borderRadius: '8px',
+              fontSize: '16px',
+              backgroundColor: 'white'
+            }}
+            required
+          />
+          {cibilData.aadharNumber && (
+            <small style={{
+              color: cibilData.aadharNumber.length === 12 ? 'green' : 'red', 
+              fontSize: '12px',
+              display: 'block',
+              marginTop: '5px'
+            }}>
+              {cibilData.aadharNumber.length === 12 
+                ? '✓ Valid Aadhar number' 
+                : `${cibilData.aadharNumber.length}/12 digits entered`
+              }
+            </small>
+          )}
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="panNumber">PAN Number *</label>
+          <input
+            type="text"
+            id="panNumber"
+            name="panNumber"
+            placeholder="Enter PAN number (e.g., ABCDE1234F)"
+            value={cibilData.panNumber}
+            onChange={handleCibilInputChange}
+            style={{
+              width: '100%',
+              padding: '12px',
+              border: '2px solid #d1d5db',
+              borderRadius: '8px',
+              fontSize: '16px',
+              backgroundColor: 'white'
+            }}
+            required
+          />
+          {cibilData.panNumber && (
+            <small style={{
+              color: cibilData.panNumber.length === 10 ? 'green' : 'red', 
+              fontSize: '12px',
+              display: 'block',
+              marginTop: '5px'
+            }}>
+              {cibilData.panNumber.length === 10 
+                ? '✓ Valid PAN number' 
+                : `${cibilData.panNumber.length}/10 characters entered`
+              }
+            </small>
+          )}
+        </div>
+
+        <div className="cibil-note">
+          <p>🔒 Your information is secure and encrypted. We use bank-level security.</p>
+        </div>
+
+        <button 
+          className={`cibil-check-btn ${isCibilChecking ? 'loading' : ''}`}
+          onClick={performCibilCheck}
+          disabled={isCibilChecking || cibilData.aadharNumber.length !== 12 || cibilData.panNumber.length !== 10}
+          style={{
+            width: '100%',
+            padding: '15px',
+            backgroundColor: isCibilChecking ? '#9ca3af' : '#3b82f6',
+            color: 'white',
+            border: 'none',
+            borderRadius: '8px',
+            fontSize: '16px',
+            fontWeight: '600',
+            cursor: isCibilChecking ? 'not-allowed' : 'pointer',
+            marginBottom: '15px'
+          }}
+        >
+          {isCibilChecking ? 'Checking CIBIL Score...' : 'Check CIBIL Score 🔍'}
+        </button>
+
+        <button 
+          className="back-btn"
+          onClick={() => setStep('bank-selection')}
+          style={{
+            width: '100%',
+            padding: '12px',
+            backgroundColor: '#6b7280',
+            color: 'white',
+            border: 'none',
+            borderRadius: '8px',
+            fontSize: '14px',
+            fontWeight: '600',
+            cursor: 'pointer'
+          }}
+        >
+          ← Back to Bank Selection
+        </button>
+      </div>
+    </div>
+  );
+
+  // CIBIL Result Component
+  const CibilResultPage = () => (
+    <div className="cibil-result-page">
+      <div className={`result-header ${cibilScore >= 650 ? 'approved' : 'rejected'}`}>
+        <h2>
+          {cibilScore >= 650 ? '🎉 CIBIL Check Passed!' : '❌ CIBIL Check Failed'}
+        </h2>
+        <div className="cibil-score-display">
+          <span className="score-label">Your CIBIL Score:</span>
+          <span className={`score-value ${cibilScore >= 650 ? 'good' : 'poor'}`}>
+            {cibilScore}
+          </span>
+        </div>
+      </div>
+
+      <div className="result-details">
+        {cibilScore >= 650 ? (
+          <>
+            <div className="success-message">
+              <p>✅ Congratulations! Your CIBIL score meets our requirements.</p>
+              <p>Your loan application with <strong>{selectedBank.name}</strong> can now proceed.</p>
+            </div>
+            
+            <div className="loan-terms">
+              <h4>Approved Loan Terms:</h4>
+              <div className="terms-list">
+                <div className="term-item">
+                  <span>Bank:</span>
+                  <span>{selectedBank.name}</span>
+                </div>
+                <div className="term-item">
+                  <span>ROI Range:</span>
+                  <span>{selectedBank.roi_min}% - {selectedBank.roi_max}%</span>
+                </div>
+                <div className="term-item">
+                  <span>Processing Time:</span>
+                  <span>{selectedBank.processing_time}</span>
+                </div>
+                <div className="term-item">
+                  <span>CIBIL Score:</span>
+                  <span className="score-good">{cibilScore} (Good)</span>
+                </div>
+              </div>
+            </div>
+
+            <button className="proceed-btn" onClick={handleFinalApproval}>
+              Confirm & Proceed with {selectedBank.name} ✅
+            </button>
+          </>
+        ) : (
+          <>
+            <div className="rejection-message">
+              <p>❌ Unfortunately, your CIBIL score of <strong>{cibilScore}</strong> is below our minimum requirement of <strong>650</strong>.</p>
+              <p>We cannot process your loan application at this time.</p>
+            </div>
+
+            <div className="suggestions">
+              <h4>Suggestions to improve your score:</h4>
+              <ul>
+                <li>Pay your credit card bills on time</li>
+                <li>Maintain low credit utilization</li>
+                <li>Avoid multiple loan inquiries</li>
+                <li>Check for errors in your credit report</li>
+              </ul>
+            </div>
+
+            <button className="try-again-btn" onClick={() => setStep('bank-selection')}>
+              Try Again with Different Bank
+            </button>
+          </>
+        )}
+      </div>
+    </div>
+  );
+
   return (
     <div className="banking-page">
       <button className="banking-close-btn" onClick={onBack}>
@@ -107,156 +378,168 @@ const BankingPage = ({
       </button>
       
       <div className="banking-container">
-        <div className="banking-header">
-          <h1>Select Your Bank</h1>
-          <p>Choose your preferred bank for loan disbursement</p>
-        </div>
         
-        <div className="banking-main-content">
-          {/* Debug Info */}
-          <div style={{
-            background: '#fff3cd', 
-            padding: '10px', 
-            margin: '0 0 20px 0', 
-            borderRadius: '5px',
-            border: '1px solid #ffeaa7',
-            fontSize: '14px'
-          }}>
-            <strong>🔧 Debug Info:</strong> 
-            App ID: {finalApplicationId || 'NOT FOUND'} | 
-            Loan Amount: {finalLoanData?.loanAmount ? 
-              (typeof finalLoanData.loanAmount === 'number' ? 
-                `₹${finalLoanData.loanAmount.toLocaleString()}` : 
-                finalLoanData.loanAmount
-              ) : 
-              'NOT FOUND'
-            }
-          </div>
-
-          {/* Loan Summary */}
-          <div className="loan-summary-card">
-            <h3>Your Loan Summary</h3>
-            <div className="summary-details">
-              <div className="summary-item">
-                <span>Application ID:</span>
-                <span>{finalApplicationId || 'N/A'}</span>
-              </div>
-              <div className="summary-item">
-                <span>Loan Amount:</span>
-                <span>
-                  {finalLoanData?.loanAmount ? 
-                    (typeof finalLoanData.loanAmount === 'number' ? 
-                      `₹${finalLoanData.loanAmount.toLocaleString()}` : 
-                      finalLoanData.loanAmount
-                    ) : 
-                    'N/A'
-                  }
-                </span>
-              </div>
-              <div className="summary-item">
-                <span>Loan Type:</span>
-                <span>{finalLoanData?.loanType || 'N/A'}</span>
-              </div>
-              <div className="summary-item">
-                <span>Status:</span>
-                <span className="approved">Approved 💹</span>
-              </div>
+        {/* Step 1: Bank Selection */}
+        {step === 'bank-selection' && (
+          <>
+            <div className="banking-header">
+              <h1>Select Your Bank</h1>
+              <p>Choose your preferred bank for loan disbursement</p>
             </div>
-          </div>
+            
+            <div className="banking-main-content">
+              {/* Debug Info */}
+              <div style={{
+                background: '#fff3cd', 
+                padding: '10px', 
+                margin: '0 0 20px 0', 
+                borderRadius: '5px',
+                border: '1px solid #ffeaa7',
+                fontSize: '14px'
+              }}>
+                <strong>🔧 Debug Info:</strong> 
+                App ID: {finalApplicationId || 'NOT FOUND'} | 
+                Loan Amount: {finalLoanData?.loanAmount ? 
+                  (typeof finalLoanData.loanAmount === 'number' ? 
+                    `₹${finalLoanData.loanAmount.toLocaleString()}` : 
+                    finalLoanData.loanAmount
+                  ) : 
+                  'NOT FOUND'
+                }
+              </div>
 
-          {/* Banks Table Section */}
-          <div className="banks-section">
-            <div className="banks-container">
-              <h4>Available Banks ({banks.length})</h4>
-              
-              {banks.length === 0 ? (
-                <div className="no-banks">
-                  <p>No banks available at the moment. Please try again later.</p>
-                </div>
-              ) : (
-                <div className="banks-table">
-                  <div className="table-container">
-                    {/* Table Header */}
-                    <div className="table-header">
-                      <div>Bank Name</div>
-                      <div>Product</div>
-                      <div>ROI</div>
-                      <div>Max Amount</div>
-                      <div>Action</div>
-                    </div>
-                    
-                    {/* Table Rows */}
-                    {banks.map((bank) => (
-                      <div
-                        key={bank.id}
-                        className={`table-row ${selectedBank?.id === bank.id ? 'selected' : ''}`}
-                        onClick={() => handleBankSelect(bank)}
-                      >
-                        {/* Bank Name Column */}
-                        <div className="bank-name-cell">
-                          <div className="bank-logo-table">
-                            {bank.logo || '🏦'}
-                          </div>
-                          <div className="bank-name-table">
-                            {bank.name}
-                          </div>
-                        </div>
-                        
-                        {/* Product Column */}
-                        <div className="product-cell">
-                          {finalLoanData?.loanType || 'Personal Loan'}
-                        </div>
-                        
-                        {/* ROI Column */}
-                        <div className="roi-cell">
-                          {bank.roi_min}% - {bank.roi_max}%
-                        </div>
-                        
-                        {/* Amount Column */}
-                        <div className="amount-cell">
-                          ₹{(bank.max_loan_amount || 5000000).toLocaleString()}
-                        </div>
-                        
-                        {/* Action Column */}
-                        <div>
-                          <button 
-                            className={`select-btn ${selectedBank?.id === bank.id ? 'selected' : ''}`}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleBankSelect(bank);
-                            }}
-                          >
-                            {selectedBank?.id === bank.id ? 'Selected ✓' : 'Select'}
-                          </button>
-                        </div>
-                      </div>
-                    ))}
+              {/* Loan Summary */}
+              <div className="loan-summary-card">
+                <h3>Your Loan Summary</h3>
+                <div className="summary-details">
+                  <div className="summary-item">
+                    <span>Application ID:</span>
+                    <span>{finalApplicationId || 'N/A'}</span>
+                  </div>
+                  <div className="summary-item">
+                    <span>Loan Amount:</span>
+                    <span>
+                      {finalLoanData?.loanAmount ? 
+                        (typeof finalLoanData.loanAmount === 'number' ? 
+                          `₹${finalLoanData.loanAmount.toLocaleString()}` : 
+                          finalLoanData.loanAmount
+                        ) : 
+                        'N/A'
+                      }
+                    </span>
+                  </div>
+                  <div className="summary-item">
+                    <span>Loan Type:</span>
+                    <span>{finalLoanData?.loanType || 'N/A'}</span>
+                  </div>
+                  <div className="summary-item">
+                    <span>Status:</span>
+                    <span className="approved">Pre-Approved 💹</span>
                   </div>
                 </div>
+              </div>
+
+              {/* Banks Table Section */}
+              <div className="banks-section">
+                <div className="banks-container">
+                  <h4>Available Banks ({banks.length})</h4>
+                  
+                  {banks.length === 0 ? (
+                    <div className="no-banks">
+                      <p>No banks available at the moment. Please try again later.</p>
+                    </div>
+                  ) : (
+                    <div className="banks-table">
+                      <div className="table-container">
+                        {/* Table Header */}
+                        <div className="table-header">
+                          <div>Bank Name</div>
+                          <div>Product</div>
+                          <div>ROI</div>
+                          <div>Max Amount</div>
+                          <div>Action</div>
+                        </div>
+                        
+                        {/* Table Rows */}
+                        {banks.map((bank) => (
+                          <div
+                            key={bank.id}
+                            className={`table-row ${selectedBank?.id === bank.id ? 'selected' : ''}`}
+                            onClick={() => handleBankSelect(bank)}
+                          >
+                            {/* Bank Name Column */}
+                            <div className="bank-name-cell">
+                              <div className="bank-logo-table">
+                                {bank.logo || '🏦'}
+                              </div>
+                              <div className="bank-name-table">
+                                {bank.name}
+                              </div>
+                            </div>
+                            
+                            {/* Product Column */}
+                            <div className="product-cell">
+                              {finalLoanData?.loanType || 'Personal Loan'}
+                            </div>
+                            
+                            {/* ROI Column */}
+                            <div className="roi-cell">
+                              {bank.roi_min}% - {bank.roi_max}%
+                            </div>
+                            
+                            {/* Amount Column */}
+                            <div className="amount-cell">
+                              ₹{(bank.max_loan_amount || 5000000).toLocaleString()}
+                            </div>
+                            
+                            {/* Action Column */}
+                            <div>
+                              <button 
+                                className={`select-btn ${selectedBank?.id === bank.id ? 'selected' : ''}`}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleBankSelect(bank);
+                                }}
+                              >
+                                {selectedBank?.id === bank.id ? 'Selected ✓' : 'Select'}
+                              </button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Action Button */}
+              {selectedBank && (
+                <div className="action-section">
+                  <button className="confirm-btn" onClick={proceedToCibilCheck}>
+                    Proceed with {selectedBank.name} for CIBIL Check
+                  </button>
+                  <p style={{textAlign: 'center', marginTop: '10px', color: '#666'}}>
+                    Next: CIBIL Score Verification Required
+                  </p>
+                </div>
               )}
-            </div>
-          </div>
 
-          {/* Action Button */}
-          {selectedBank && (
-            <div className="action-section">
-              <button className="confirm-btn" onClick={confirmBankSelection}>
-                Confirm {selectedBank.name} for Loan Disbursement
-              </button>
-              <p style={{textAlign: 'center', marginTop: '10px', color: '#666'}}>
-                Your loan will be processed within {selectedBank.processing_time}
-              </p>
+              {/* Note */}
+              <div className="note-section">
+                <p>
+                  <strong>Note:</strong> CIBIL score verification is required before final loan approval. 
+                  Minimum CIBIL score required: <strong>650</strong>
+                </p>
+              </div>
             </div>
-          )}
+          </>
+        )}
 
-          {/* Note */}
-          <div className="note-section">
-            <p>
-              <strong>Note:</strong> Your loan will be disbursed within 24-48 hours after bank verification. 
-              CIBIL check is already completed and approved. Application ID: <strong>{finalApplicationId}</strong>
-            </p>
-          </div>
-        </div>
+        {/* Step 2: CIBIL Check */}
+        {step === 'cibil-check' && <CibilCheckPage />}
+
+        {/* Step 3: CIBIL Result */}
+        {step === 'result' && <CibilResultPage />}
       </div>
     </div>
   );
