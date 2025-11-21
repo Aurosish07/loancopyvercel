@@ -39,7 +39,7 @@ const FinancialProducts = ({ onApplyClick }) => {
 
   // Fetch loan products from backend
   useEffect(() => {
-    fetch("https://loancopy-production.up.railway.app/api/loan-products")
+    fetch("http://localhost:5000/api/loan-products")
       .then((res) => res.json())
       .then((data) => setLoanProducts(data))
       .catch((err) => {
@@ -85,10 +85,10 @@ const FinancialProducts = ({ onApplyClick }) => {
 
   return (
     <>
-      <section className="financial-products-modern">
-        <div className="container">
-          <div className="section-header-modern">
-            <div className="section-badge">Our Products ✨</div>
+      <section className="finpro-modern-section">
+        <div className="finpro-container">
+          <div className="finpro-section-header">
+            <div className="finpro-section-badge">Our Products ✨</div>
             <h2>
               Loans for Every&nbsp;<span>Dream</span>
             </h2>
@@ -97,77 +97,68 @@ const FinancialProducts = ({ onApplyClick }) => {
             </p>
           </div>
 
-          <div className="products-grid-modern">
+          <div className="finpro-products-grid">
             {loanProducts.map((product, index) => (
               <div
                 key={product.id}
-                className={`product-card-modern ${
-                  hoveredCard === product.id ? "hovered" : ""
+                className={`finpro-product-card ${
+                  hoveredCard === product.id ? "finpro-card-hovered" : ""
                 }`}
                 onMouseEnter={() => setHoveredCard(product.id)}
                 onMouseLeave={() => setHoveredCard(null)}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Card Content */}
-                <div className="card-content-moderns">
-                  <div className="product-image-container">
-                    <div className="image-background">
+                <div className="finpro-card-content">
+                  <div className="finpro-image-container">
+                    <div className="finpro-image-bg">
                       <img
                         src={getProductImage(product)}
                         alt={product.name}
-                        className="product-image"
+                        className="finpro-product-img"
                         onError={() => handleImageError(product.name)}
                       />
                     </div>
                   </div>
 
-                  <div className="product-info">
+                  <div className="finpro-product-info">
                     <h3>{product.name}</h3>
-                    <p className="product-description">
+                    <p className="finpro-product-desc">
                       {product.description}
                     </p>
                   </div>
 
                   {/* Loan Details Section */}
-                  <div className="loan-details-modern">
-                    <div className="detail-row">
-                      <div className="detail-items">
-                        
-                        <div className="detail-contents">
-                        
-                          <span className="detail-label">Interest Rate</span>
-                          <span className="detail-value">
+                  <div className="finpro-loan-details">
+                    <div className="finpro-detail-row">
+                      <div className="finpro-detail-item">
+                        <div className="finpro-detail-content">
+                          <span className="finpro-detail-label">Interest Rate</span>
+                          <span className="finpro-detail-value">
                             {product.interest_rate}
                           </span>
                         </div>
                       </div>
-                      <div className="detail-items">
-                        
-                        <div className="detail-contents">
-                         
-                          <span className="detail-label">Tenure</span>
-                          <span className="detail-value">
+                      <div className="finpro-detail-item">
+                        <div className="finpro-detail-content">
+                          <span className="finpro-detail-label">Tenure</span>
+                          <span className="finpro-detail-value">
                             {product.tenure}
                           </span>
                         </div>
                       </div>
-                    
-                      <div className="detail-items">
-                        
-                        <div className="detail-contents">
-                        
-                          <span className="detail-label">Processing Time</span>
-                          <span className="detail-value">
+                      <div className="finpro-detail-item">
+                        <div className="finpro-detail-content">
+                          <span className="finpro-detail-label">Processing Time</span>
+                          <span className="finpro-detail-value">
                             {product.processing_time}
                           </span>
                         </div>
                       </div>
-                      <div className="detail-items">
-                        
-                        <div className="detail-contents">
-                      
-                          <span className="detail-label">Security</span>
-                          <span className="detail-value">
+                      <div className="finpro-detail-item">
+                        <div className="finpro-detail-content">
+                          <span className="finpro-detail-label">Security</span>
+                          <span className="finpro-detail-value">
                             {product.security_type}
                           </span>
                         </div>
@@ -177,13 +168,13 @@ const FinancialProducts = ({ onApplyClick }) => {
                 </div>
 
                 {/* Card Actions */}
-                <div className="card-actions-modern">
+                <div className="finpro-card-actions">
                   <button
-                    className="btn-primary-modern"
+                    className="finpro-primary-btn"
                     onClick={() => handleApplyNow(product)}
                   >
                     <span>Apply Now</span>
-                    <FaArrowRight className="arrow-icon" />
+                    <FaArrowRight className="finpro-arrow-icon" />
                   </button>
                 </div>
               </div>
@@ -194,13 +185,13 @@ const FinancialProducts = ({ onApplyClick }) => {
 
       {/* Loan Form Popup */}
       {showLoanForm && (
-        <div className="loan-form-popup-overlay">
-          <div className="loan-form-popup-container">
-            <button className="popup-close-btn" onClick={handleCloseLoanForm}>
+        <div className="finpro-popup-overlay">
+          <div className="finpro-popup-container">
+            <button className="finpro-popup-close" onClick={handleCloseLoanForm}>
               <FaTimes />
             </button>
             
-            <div className="loan-form-popup-contents">
+            <div className="finpro-popup-content">
               <LoanForm 
                 preSelectedLoanType={selectedProduct?.name}
                 onClose={handleCloseLoanForm}
@@ -214,3 +205,4 @@ const FinancialProducts = ({ onApplyClick }) => {
 };
 
 export default FinancialProducts;
+
