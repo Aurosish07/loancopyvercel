@@ -1,29 +1,4 @@
-/* LoanForm.css - Optimized for Full Width & Mobile */
-
-/* Base container improvements - FULL WIDTH */
-.loan-form-full-container {
-  width: 100%;
-  margin: 0 auto;
-  padding: 10px 8px;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #FAF5FF 0%, #FDF2F8 50%, #FFF7ED 100%);
-  min-height: 100vh;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  box-sizing: border-box;
-}
-
-.loan-form-full-wrapper {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-/* Header improvements for mobile - FULL WIDTH */
-.loan-form-full-header {
-  text-align: center;
-  margin-bottom: 15px;
+px;
   padding: 0 5px;
   width: 100%;
 }
