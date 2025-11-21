@@ -1,89 +1,104 @@
-.financial-products-modern {
+/* Financial Products Modern Styles */
+.finpro-modern-section {
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 80px 0 10px;
+  padding: 40px 10px 10px;
   box-sizing: border-box;
 }
 
-.section-header-modern {
-  text-align: center;
-  margin-bottom: 50px;
+.finpro-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.section-badge {
+.finpro-section-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+
+.finpro-section-badge {
   display: inline-block;
   background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 8px 20px;
+  padding: 6px 16px;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
-.section-header-modern h2 {
-  font-size: 2.5rem;
+.finpro-section-header h2 {
+  font-size: 2rem;
   font-weight: 700;
   color: #1a202c;
-  margin: 10px 0;
+  margin: 8px 0;
   line-height: 1.2;
 }
 
-.section-header-modern span {
+.finpro-section-header span {
   background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.section-header-modern p {
-  font-size: 1rem;
+.finpro-section-header p {
+  font-size: 0.9rem;
   color: #718096;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.5;
   font-weight: 400;
-  max-width: 600px;
+  max-width: 500px;
 }
 
-.products-grid-modern {
+/* Products Grid - Full Width Layout */
+.finpro-products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  margin-bottom: 50px;
-  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
-.product-card-modern {
+.finpro-product-card {
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   border: 1px solid #e2e8f0;
   position: relative;
   opacity: 0;
-  animation: slideUp 0.6s ease-out forwards;
+  animation: finproSlideUp 0.6s ease-out forwards;
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 300px;
-  min-height: 380px;
-  border-radius: 16px;
 }
 
-.product-card-modern:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+.finpro-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
   border-color: #667eea;
 }
 
-@keyframes slideUp {
+.finpro-card-hovered {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+  border-color: #667eea;
+}
+
+@keyframes finproSlideUp {
   from {
     opacity: 0;
-    transform: translateY(25px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -91,16 +106,15 @@
   }
 }
 
-.card-content-modern {
-  flex: 1;
+.finpro-card-content {
   display: flex;
   flex-direction: column;
   padding: 0;
 }
 
-/* Image Section - UNCHANGED */
-.product-image-container {
-  height: 130px;
+/* Image Section */
+.finpro-image-container {
+  height: 120px;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -108,11 +122,11 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 5px solid;
+  border: 4px solid;
   border-image: linear-gradient(135deg, #9810fa, #f6339a) 1;
 }
 
-.image-background {
+.finpro-image-bg {
   width: 100%;
   height: 100%;
   display: flex;
@@ -120,28 +134,30 @@
   justify-content: center;
 }
 
-.product-image {
-  object-fit: contain;
+.finpro-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.3s ease;
   border-radius: 0;
 }
 
-/* Compact Content Section */
-.product-info {
-  padding: 12px 15px 5px 15px;
+/* Content Section */
+.finpro-product-info {
+  padding: 10px 12px 4px 12px;
   text-align: center;
 }
 
-.product-info h3 {
-  font-size: 1.1rem;
+.finpro-product-info h3 {
+  font-size: 1rem;
   font-weight: 700;
   color: #2d3748;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
   line-height: 1.3;
 }
 
-.product-description {
-  font-size: 0.75rem;
+.finpro-product-desc {
+  font-size: 0.72rem;
   color: #718096;
   line-height: 1.4;
   margin: 0;
@@ -151,387 +167,427 @@
   overflow: hidden;
 }
 
-/* UPDATED: Single Line Loan Details */
-.loan-details-modern {
-  padding: 6px 15px;
+/* Loan Details Section */
+.finpro-loan-details {
+  padding: 5px 12px;
   background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-  margin: 6px 0;
+  margin: 4px 0;
   border-top: 1px solid #e2e8f0;
   border-bottom: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 }
 
-.detail-item-single {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 3px 0;
-}
-
-.detail-icon {
-  color: #667eea;
-  font-size: 0.8rem;
-  flex-shrink: 0;
-  width: 14px;
-  text-align: center;
-}
-
-.detail-contents {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.detail-row {
+.finpro-detail-row {
   display: flex;
   flex-direction: column;
-  text-align: left;
-  flex: 1;
+  gap: 4px;
 }
 
-.detail-label {
-  font-size: 0.7rem;
+.finpro-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.finpro-detail-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1px;
+}
+
+.finpro-detail-label {
+  font-size: 0.68rem;
   color: #718096;
   font-weight: 500;
-  line-height: 1.4;
-  flex-shrink: 0;
+  line-height: 1.3;
 }
 
-.detail-value {
-  font-size: 0.75rem;
+.finpro-detail-value {
+  font-size: 0.7rem;
   color: #2d3748;
   font-weight: 600;
   line-height: 1.2;
-  text-align: left !important;
-  flex-shrink: 0;
-}
-
-/* Compact Features List */
-.features-list-modern {
-  padding: 8px 15px;
-  flex: 1;
-  min-height: 50px;
-}
-
-.feature-item-modern {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 3px 0;
-  color: #4a5568;
-}
-
-.feature-check {
-  color: #48bb78;
-  font-size: 0.7rem;
-  flex-shrink: 0;
-}
-
-.feature-item-modern span {
-  color: #4a5568;
-  font-weight: 500;
-  font-size: 0.75rem;
-  line-height: 1.2;
-}
-
-/* Compact Pricing Section */
-.pricing-section {
-  padding: 10px 15px;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  border-top: 1px solid #e2e8f0;
-  min-height: 45px;
-}
-
-.price-tag {
   text-align: left;
 }
 
-.price-amount {
-  display: block;
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: #2d3748;
-  line-height: 1;
-}
-
-.price-label {
-  font-size: 0.65rem;
-  color: #718096;
-  margin-top: 2px;
-}
-
-.product-stats {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.stat-item {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.65rem;
-  color: #4a5568;
-}
-
-.stat-icon {
-  color: #667eea;
-  font-size: 0.6rem;
-}
-
 /* Card Actions */
-.card-actions-modern {
-  padding: 12px 15px;
+.finpro-card-actions {
+  padding: 10px 12px;
   background: white;
   border-top: 1px solid #f1f5f9;
 }
 
-.btn-primary-modern {
+.finpro-primary-btn {
   width: 100%;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(90deg, #9810FA 0%, #E60076 50%, #F54900 100%);
+  
   color: white;
   border: none;
-  padding: 10px 16px;
-  border-radius: 10px;
+  padding: 9px 14px;
+  border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  font-size: 0.85rem;
-  min-height: 38px;
+  gap: 5px;
+  font-size: 0.82rem;
+  min-height: 36px;
 }
 
-.btn-primary-modern:hover {
+.finpro-primary-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 12px rgba(102, 126, 234, 0.4);
   background: linear-gradient(90deg, #5a6fd8 0%, #6a4190 100%);
 }
 
-.arrow-icon {
+.finpro-arrow-icon {
   transition: transform 0.3s ease;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
-.btn-primary-modern:hover .arrow-icon {
+.finpro-primary-btn:hover .finpro-arrow-icon {
   transform: translateX(3px);
 }
 
-/* Responsive Design - 2 cards per row on mobile */
-@media (max-width: 1024px) {
-  .products-grid-modern {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-  }
-}
+/* ===== RESPONSIVE DESIGN ===== */
 
-@media (max-width: 768px) {
-  .financial-products-modern {
-    padding: 60px 0;
-  }
-
-  .section-header-modern {
-    margin-bottom: 40px;
-  }
-
-  .section-header-modern h2 {
-    font-size: 2rem;
-  }
-
-  .section-header-modern p {
-    font-size: 0.9rem;
-    padding: 0 20px;
-  }
-
-  .products-grid-modern {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    padding: 0 15px;
-  }
-
-  .product-card-modern {
-    max-width: 100%;
-    min-height: 360px;
-    margin: 0;
-  }
-
-  .product-info h3 {
-    font-size: 1rem;
-  }
-
-  .product-description {
-    font-size: 0.7rem;
-  }
-
-  /* Mobile fixes for loan details */
-  .loan-details-modern {
-    padding: 5px 12px;
-    gap: 5px;
-  }
-
-  .detail-item-single {
-    gap: 8px;
-    padding: 2px 0;
-  }
-
-  .detail-icon {
-    font-size: 0.75rem;
-    width: 12px;
-  }
-
-  .detail-label {
-    font-size: 0.65rem;
-  }
-
-  .detail-value {
-    font-size: 0.7rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .products-grid-modern {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    padding: 0 10px;
-  }
-
-  .product-card-modern {
-    min-height: 340px;
-    border-radius: 14px;
-  }
-
-  .product-info {
-    padding: 10px 12px 4px 12px;
-  }
-
-  .product-info h3 {
-    font-size: 0.95rem;
-    margin-bottom: 4px;
-  }
-
-  .product-description {
-    font-size: 0.68rem;
-    -webkit-line-clamp: 2;
-  }
-
-  .loan-details-modern {
-    padding: 4px 10px;
-    gap: 4px;
-  }
-
-  .features-list-modern {
-    padding: 6px 12px;
-    min-height: 45px;
-  }
-
-  .pricing-section {
-    padding: 8px 12px;
-    min-height: 40px;
-  }
-
-  .card-actions-modern {
-    padding: 10px 12px;
-  }
-
-  .btn-primary-modern {
-    padding: 8px 12px;
-    font-size: 0.8rem;
-    min-height: 36px;
-    border-radius: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .section-header-modern h2 {
-    font-size: 1.6rem;
-  }
-
-  .section-header-modern p {
-    font-size: 0.85rem;
-  }
-
-  .section-badge {
-    font-size: 0.8rem;
-    padding: 6px 16px;
-  }
-
-  .products-grid-modern {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    padding: 0 8px;
-  }
-
-  .product-card-modern {
-    min-height: 320px;
-  }
-
-  .product-info {
-    padding: 8px 10px 3px 10px;
-  }
-
-  .product-info h3 {
-    font-size: 0.9rem;
-  }
-
-  .product-description {
-    font-size: 0.65rem;
-    -webkit-line-clamp: 2;
-  }
-
-  .btn-primary-modern {
-    font-size: 0.75rem;
-    padding: 7px 10px;
-    min-height: 34px;
-  }
-
-  /* Small screen fixes */
-  .detail-item-single {
-    gap: 6px;
-    padding: 2px 0;
-  }
-
-  .detail-icon {
-    font-size: 0.7rem;
-    width: 11px;
-  }
-
-  .detail-label {
-    font-size: 0.6rem;
-  }
-
-  .detail-value {
-    font-size: 0.65rem;
-  }
-
-  .feature-item-modern span {
-    font-size: 0.7rem;
-  }
-
-  .price-amount {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 360px) {
-  .products-grid-modern {
-    grid-template-columns: 1fr;
-    gap: 12px;
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+  .finpro-modern-section {
+    padding: 40px 20px 10px;
   }
   
-  .product-card-modern {
-    min-height: 300px;
-    max-width: 280px;
+  .finpro-products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 15px;
+  }
+}
+
+/* Desktop (1024px - 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .finpro-products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    padding: 0 12px;
+  }
+}
+
+/* Tablet (768px - 1023px) - 3 CARDS PER ROW */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .finpro-modern-section {
+    padding: 35px 8px 10px;
+  }
+  
+  .finpro-section-header {
+    margin-bottom: 25px;
+    padding: 0 8px;
+  }
+  
+  .finpro-section-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .finpro-section-header p {
+    font-size: 0.85rem;
+  }
+  
+  .finpro-products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 0 8px;
+  }
+  
+  .finpro-product-card {
+    border-radius: 10px;
+  }
+  
+  .finpro-image-container {
+    height: 110px;
+  }
+  
+  .finpro-product-info {
+    padding: 8px 10px 3px 10px;
+  }
+  
+  .finpro-product-info h3 {
+    font-size: 0.95rem;
+  }
+  
+  .finpro-product-desc {
+    font-size: 0.7rem;
+  }
+  
+  .finpro-loan-details {
+    padding: 4px 10px;
+    gap: 3px;
+  }
+  
+  .finpro-detail-label {
+    font-size: 0.65rem;
+  }
+  
+  .finpro-detail-value {
+    font-size: 0.68rem;
+  }
+  
+  .finpro-card-actions {
+    padding: 8px 10px;
+  }
+  
+  .finpro-primary-btn {
+    padding: 8px 12px;
+    font-size: 0.78rem;
+    min-height: 34px;
+  }
+}
+
+/* Mobile (577px - 767px) - 2 CARDS PER ROW */
+@media (min-width: 577px) and (max-width: 767px) {
+  .finpro-modern-section {
+    padding: 30px 6px 10px;
+  }
+  
+  .finpro-section-header {
+    margin-bottom: 20px;
+    padding: 0 6px;
+  }
+  
+  .finpro-section-header h2 {
+    font-size: 1.6rem;
+  }
+  
+  .finpro-section-header p {
+    font-size: 0.8rem;
+  }
+  
+  .finpro-section-badge {
+    font-size: 0.75rem;
+    padding: 5px 14px;
+  }
+  
+  .finpro-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 6px;
+  }
+  
+  .finpro-product-card {
+    border-radius: 10px;
+  }
+  
+  .finpro-image-container {
+    height: 100px;
+  }
+  
+  .finpro-product-info {
+    padding: 6px 8px 2px 8px;
+  }
+  
+  .finpro-product-info h3 {
+    font-size: 0.9rem;
+  }
+  
+  .finpro-product-desc {
+    font-size: 0.68rem;
+  }
+  
+  .finpro-loan-details {
+    padding: 3px 8px;
+    gap: 2px;
+  }
+  
+  .finpro-detail-label {
+    font-size: 0.62rem;
+  }
+  
+  .finpro-detail-value {
+    font-size: 0.65rem;
+  }
+  
+  .finpro-primary-btn {
+    font-size: 0.75rem;
+    padding: 7px 10px;
+    min-height: 32px;
+  }
+}
+
+/* Small Mobile (481px - 576px) */
+@media (min-width: 481px) and (max-width: 576px) {
+  .finpro-modern-section {
+    padding: 25px 4px 10px;
+  }
+  
+  .finpro-section-header {
+    padding: 0 4px;
+  }
+  
+  .finpro-section-header h2 {
+    font-size: 1.4rem;
+  }
+  
+  .finpro-section-header p {
+    font-size: 0.75rem;
+  }
+  
+  .finpro-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 0 4px;
+  }
+  
+  .finpro-product-card {
+    border-radius: 8px;
+  }
+  
+  .finpro-image-container {
+    height: 90px;
+    border: 3px solid;
+    border-image: linear-gradient(135deg, #9810fa, #f6339a) 1;
+  }
+  
+  .finpro-product-info {
+    padding: 5px 6px 2px 6px;
+  }
+  
+  .finpro-product-info h3 {
+    font-size: 0.85rem;
+  }
+  
+  .finpro-product-desc {
+    font-size: 0.65rem;
+  }
+  
+  .finpro-loan-details {
+    padding: 2px 6px;
+    gap: 1px;
+  }
+  
+  .finpro-detail-label {
+    font-size: 0.6rem;
+  }
+  
+  .finpro-detail-value {
+    font-size: 0.62rem;
+  }
+  
+  .finpro-card-actions {
+    padding: 6px 6px;
+  }
+  
+  .finpro-primary-btn {
+    font-size: 0.72rem;
+    padding: 6px 8px;
+    min-height: 30px;
+    border-radius: 6px;
+  }
+}
+
+/* Extra Small Mobile (320px - 480px) */
+@media (min-width: 320px) and (max-width: 480px) {
+  .finpro-modern-section {
+    padding: 20px 2px 10px;
+  }
+  
+  .finpro-section-header {
+    margin-bottom: 15px;
+    padding: 0 2px;
+  }
+  
+  .finpro-section-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .finpro-section-header p {
+    font-size: 0.7rem;
+  }
+  
+  .finpro-section-badge {
+    font-size: 0.7rem;
+    padding: 4px 12px;
+  }
+  
+  .finpro-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    padding: 0 2px;
+  }
+  
+  .finpro-product-card {
+    border-radius: 6px;
+  }
+  
+  .finpro-image-container {
+    height: 80px;
+    border: 2px solid;
+    border-image: linear-gradient(135deg, #9810fa, #f6339a) 1;
+  }
+  
+  .finpro-product-info {
+    padding: 4px 5px 1px 5px;
+  }
+  
+  .finpro-product-info h3 {
+    font-size: 0.8rem;
+    margin-bottom: 3px;
+  }
+  
+  .finpro-product-desc {
+    font-size: 0.62rem;
+  }
+  
+  .finpro-loan-details {
+    padding: 2px 5px;
+    gap: 1px;
+    margin: 2px 0;
+  }
+  
+  .finpro-detail-label {
+    font-size: 0.58rem;
+  }
+  
+  .finpro-detail-value {
+    font-size: 0.6rem;
+  }
+  
+  .finpro-card-actions {
+    padding: 5px 5px;
+  }
+  
+  .finpro-primary-btn {
+    font-size: 0.7rem;
+    padding: 5px 6px;
+    min-height: 28px;
+    border-radius: 5px;
+    gap: 3px;
+  }
+  
+  .finpro-arrow-icon {
+    font-size: 0.65rem;
+  }
+}
+
+/* Ultra Small Mobile (below 320px) */
+@media (max-width: 319px) {
+  .finpro-products-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 0 10px;
+  }
+  
+  .finpro-product-card {
+    max-width: 260px;
     margin: 0 auto;
   }
 }
 
 /* Loan Form Popup Styles */
-.loan-form-popup-overlay {
+.finpro-popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -542,30 +598,29 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
 }
 
-.loan-form-popup-container {
+.finpro-popup-container {
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
 }
 
-.popup-close-btn {
+.finpro-popup-close {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 10px;
+  right: 10px;
   background: #f7fafc;
   border: none;
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -575,11 +630,30 @@
   z-index: 10;
 }
 
-.popup-close-btn:hover {
+.finpro-popup-close:hover {
   background: #667eea;
   color: white;
 }
 
-.loan-form-popup-content {
-  padding: 10px;
+.finpro-popup-content {
+  padding: 8px;
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  .finpro-product-card:hover {
+    transform: none;
+  }
+  
+  .finpro-primary-btn:hover {
+    transform: none;
+  }
+  
+  .finpro-product-card:active {
+    transform: scale(0.98);
+  }
+  
+  .finpro-primary-btn:active {
+    transform: scale(0.98);
+  }
 }
