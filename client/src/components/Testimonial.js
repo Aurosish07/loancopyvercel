@@ -14,7 +14,7 @@ const Testimonial = () => {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [slidesToShow, setSlidesToShow] = useState(3);
+  const [slidesToShow, setSlidesToShow] = useState(1);
 
   // Fetch testimonials from backend
   useEffect(() => {
@@ -33,7 +33,6 @@ const Testimonial = () => {
       } catch (err) {
         console.error("Error fetching testimonials:", err);
         setError("Failed to load testimonials. Please try again later.");
-        // Only 2 cards in default testimonials
         setTestimonials(getDefaultTestimonials());
       } finally {
         setLoading(false);
@@ -50,8 +49,10 @@ const Testimonial = () => {
       
       if (width < 768) {
         setSlidesToShow(1); // Mobile - 1 card
+      } else if (width < 1024) {
+        setSlidesToShow(2); // Tablet - 2 cards
       } else {
-        setSlidesToShow(3); // Tablet/Laptop - 3 cards
+        setSlidesToShow(3); // Desktop - 3 cards
       }
     };
 
@@ -60,7 +61,7 @@ const Testimonial = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Fallback default testimonials - ONLY 2 CARDS
+  // Fallback default testimonials
   const getDefaultTestimonials = () => [
     {
       id: 1,
@@ -70,7 +71,6 @@ const Testimonial = () => {
       content: "FinTrust helped me expand my business with a timely loan. The process was smooth and the interest rates were very competitive. Highly recommended!",
       rating: 5,
       bgColor: "card-bg-1",
-      borderColor: "card-border-1",
     },
     {
       id: 2,
@@ -80,9 +80,7 @@ const Testimonial = () => {
       content: "Got my home loan approved in just 3 days! The team was very supportive throughout the process. Made my dream of owning a home come true.",
       rating: 5,
       bgColor: "card-bg-2",
-      borderColor: "card-border-2",
     }
-    // Only 2 cards - no more
   ];
 
   const totalSlides = testimonials.length;
@@ -188,7 +186,7 @@ const Testimonial = () => {
             {testimonials.map((testimonial, index) => (
               <div key={testimonial.id || index} className="testimonial-slide">
                 <div
-                  className={`testimonial-card-appx ${testimonial.bgColor} ${testimonial.borderColor}`}
+                  className={`testimonial-card-appx ${testimonial.bgColor}`}
                 >
                   {/* Quote Icon */}
                   <div className="quote-icon-appx">
@@ -229,9 +227,6 @@ const Testimonial = () => {
                       </div>
                     </div>
                   </div>
-
-                  {/* Background Gradient */}
-                  <div className="testimonial-gradient-appx"></div>
                 </div>
               </div>
             ))}
@@ -289,3 +284,4 @@ const Testimonial = () => {
 };
 
 export default Testimonial;
+
