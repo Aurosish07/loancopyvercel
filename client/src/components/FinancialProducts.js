@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  FaArrowRight,
-  FaClock,
-  FaPercent,
-  FaMoneyBillWave,
-  FaShieldAlt,
-  FaTimes,
-} from "react-icons/fa";
+import { FaArrowRight, FaTimes } from "react-icons/fa";
 import "./FinancialProducts.css";
 
 // Import your images
@@ -18,7 +11,7 @@ import odLoanImage from "../assets/images/od-loan.jpg";
 import ccLoanImage from "../assets/images/cc-loan.jpg";
 
 // Import the actual LoanForm component
-import LoanForm from "./LoanForm"; // Adjust the path as needed
+import LoanForm from "./LoanForm";
 
 // Fallback images
 const fallbackImages = {
@@ -108,8 +101,8 @@ const FinancialProducts = ({ onApplyClick }) => {
                 onMouseLeave={() => setHoveredCard(null)}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                {/* Card Content */}
                 <div className="finpro-card-content">
+                  {/* Image Section */}
                   <div className="finpro-image-container">
                     <div className="finpro-image-bg">
                       <img
@@ -121,47 +114,37 @@ const FinancialProducts = ({ onApplyClick }) => {
                     </div>
                   </div>
 
+                  {/* Product Info */}
                   <div className="finpro-product-info">
                     <h3>{product.name}</h3>
-                    <p className="finpro-product-desc">
-                      {product.description}
-                    </p>
                   </div>
 
-                  {/* Loan Details Section */}
+                  {/* Clean Loan Details Section - No Icons */}
                   <div className="finpro-loan-details">
-                    <div className="finpro-detail-row">
+                    <div className="finpro-details-grid">
                       <div className="finpro-detail-item">
-                        <div className="finpro-detail-content">
-                          <span className="finpro-detail-label">Interest Rate</span>
-                          <span className="finpro-detail-value">
-                            {product.interest_rate}
-                          </span>
-                        </div>
+                        <span className="finpro-detail-label">Interest Rate</span>
+                        <span className="finpro-detail-value">
+                          {product.interest_rate}
+                        </span>
                       </div>
                       <div className="finpro-detail-item">
-                        <div className="finpro-detail-content">
-                          <span className="finpro-detail-label">Tenure</span>
-                          <span className="finpro-detail-value">
-                            {product.tenure}
-                          </span>
-                        </div>
+                        <span className="finpro-detail-label">Tenure</span>
+                        <span className="finpro-detail-value">
+                          {product.tenure}
+                        </span>
                       </div>
                       <div className="finpro-detail-item">
-                        <div className="finpro-detail-content">
-                          <span className="finpro-detail-label">Processing Time</span>
-                          <span className="finpro-detail-value">
-                            {product.processing_time}
-                          </span>
-                        </div>
+                        <span className="finpro-detail-label">Processing Time</span>
+                        <span className="finpro-detail-value">
+                          {product.processing_time}
+                        </span>
                       </div>
                       <div className="finpro-detail-item">
-                        <div className="finpro-detail-content">
-                          <span className="finpro-detail-label">Security</span>
-                          <span className="finpro-detail-value">
-                            {product.security_type}
-                          </span>
-                        </div>
+                        <span className="finpro-detail-label">Security</span>
+                        <span className="finpro-detail-value">
+                          {product.security_type}
+                        </span>
                       </div>
                     </div>
                   </div>
