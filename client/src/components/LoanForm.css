@@ -7,7 +7,7 @@
   padding: 10px 8px;
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #FAF5FF 0%, #FDF2F8 50%, #FFF7ED 100%);
-  min-height: 100vh;
+ 
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -1147,3 +1147,74 @@ input::placeholder {
     border: 1px solid #000;
   }
 }
+
+/* Add these to your LoanForm.css */
+
+/* Modal fixes */
+.modal-overlay-full {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.modal-overlay-full.active {
+  display: flex !important;
+}
+
+.modal-content-full {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 100vw !important;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+/* Step content styling */
+.step-content {
+  width: 100%;
+  padding: 20px;
+}
+
+/* Ensure modal close button is visible */
+.modal-close-btn-full {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-close-btn-full:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Fix for modal header */
+.modal-header-full {
+  padding: 20px 20px 10px;
+  text-align: center;
+  border-bottom: 1px solid #e9ecef;
+  margin-bottom: 20px;
+}
+
+/* Make sure modal content is properly centered */
