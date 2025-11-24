@@ -139,7 +139,7 @@ const Footer = () => {
               </p>
               <p>
                 <FontAwesomeIcon icon={faPhone} />
-                1-800-LOAN-PRO
+                +918889353273
               </p>
               <p>
                 <FontAwesomeIcon icon={faMapMarkerAlt} />
