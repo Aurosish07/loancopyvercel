@@ -32,7 +32,7 @@ const FinancialProducts = ({ onApplyClick }) => {
 
   // Fetch loan products from backend
   useEffect(() => {
-    fetch("https://loancopy-production.up.railway.app/api/loan-products")
+    fetch("http://localhost:5000/api/loan-products")
       .then((res) => res.json())
       .then((data) => setLoanProducts(data))
       .catch((err) => {
@@ -128,24 +128,7 @@ const FinancialProducts = ({ onApplyClick }) => {
                           {product.interest_rate}
                         </span>
                       </div>
-                      <div className="finpro-detail-item">
-                        <span className="finpro-detail-label">Tenure</span>
-                        <span className="finpro-detail-value">
-                          {product.tenure}
-                        </span>
-                      </div>
-                      <div className="finpro-detail-item">
-                        <span className="finpro-detail-label">Processing Time</span>
-                        <span className="finpro-detail-value">
-                          {product.processing_time}
-                        </span>
-                      </div>
-                      <div className="finpro-detail-item">
-                        <span className="finpro-detail-label">Security</span>
-                        <span className="finpro-detail-value">
-                          {product.security_type}
-                        </span>
-                      </div>
+                      
                     </div>
                   </div>
                 </div>
