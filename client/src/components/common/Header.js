@@ -29,9 +29,9 @@ const Header = () => {
       <div className="header-container">
         {/* Left - Logo */}
         <div className="header-logo">
-          <Link to="/">
+{/* <Link to="/">
             <img src="https://loancopyvercel.vercel.app/images/logo.png" alt="Logo" />
-          </Link>
+          </Link> */}
         </div>
 
         {/* Hamburger for Mobile */}
