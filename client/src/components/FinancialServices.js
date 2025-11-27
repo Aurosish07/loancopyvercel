@@ -85,18 +85,6 @@ const LoanServices = ({ onApplyClick }) => {
                     <p className="service-description">{service.description}</p>
                   </div>
 
-                  <div className="pricing-section">
-                    <div className="service-stats">
-                      <div className="stat-item">
-                        <FaStar className="stat-icon" />
-                        <span>4.9/5 Rating</span>
-                      </div>
-                      <div className="stat-item">
-                        <FaUsers className="stat-icon" />
-                        <span>20K+ Happy Clients</span>
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
                 <div className="card-actions-modern">
