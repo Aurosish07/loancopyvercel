@@ -79,7 +79,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 320px;
+  /* min-height: 320px; */
 }
 
 .service-card-modern:hover {
@@ -152,38 +152,7 @@
   overflow: hidden;
 }
 
-/* Pricing & Stats - SINGLE LINE LAYOUT */
-.pricing-section {
-  padding: 8px 12px;
-  border-top: 1px solid #e2e8f0;
-  flex-shrink: 0;
-  margin-top: auto;
-}
 
-.service-stats {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-}
-
-.stat-item {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.68rem;
-  color: #4a5568;
-  white-space: nowrap;
-  flex: 1;
-  justify-content: center;
-}
-
-.stat-icon {
-  color: #667eea;
-  font-size: 0.65rem;
-  flex-shrink: 0;
-}
 
 /* Card Actions - Compact */
 .card-actions-modern {
@@ -240,7 +209,7 @@
   }
   
   .service-card-modern {
-    min-height: 340px;
+    /* min-height: 340px; */
   }
   
   .stat-item {
@@ -258,7 +227,7 @@
   }
   
   .service-card-modern {
-    min-height: 330px;
+    /* min-height: 330px; */
   }
   
   .stat-item {
@@ -293,7 +262,7 @@
   }
   
   .service-card-modern {
-    min-height: 320px;
+    /* min-height: 320px; */
     border-radius: 14px;
   }
   
@@ -313,23 +282,7 @@
     font-size: 0.7rem;
   }
   
-  .pricing-section {
-    padding: 6px 10px;
-  }
-  
-  .service-stats {
-    gap: 6px;
-  }
-  
-  .stat-item {
-    font-size: 0.65rem;
-    gap: 3px;
-  }
-  
-  .stat-icon {
-    font-size: 0.6rem;
-  }
-  
+ 
   .card-actions-modern {
     padding: 8px 10px;
   }
@@ -372,7 +325,7 @@
   }
   
   .service-card-modern {
-    min-height: 300px;
+    /* min-height: 300px; */
     border-radius: 12px;
   }
   
@@ -392,22 +345,7 @@
     font-size: 0.68rem;
   }
   
-  .pricing-section {
-    padding: 5px 8px;
-  }
   
-  .service-stats {
-    gap: 5px;
-  }
-  
-  .stat-item {
-    font-size: 0.62rem;
-    gap: 3px;
-  }
-  
-  .stat-icon {
-    font-size: 0.58rem;
-  }
   
   .card-actions-modern {
     padding: 6px 8px;
@@ -446,7 +384,7 @@
   }
   
   .service-card-modern {
-    min-height: 280px;
+    /* min-height: 280px; */
     border-radius: 10px;
   }
   
@@ -466,22 +404,6 @@
     font-size: 0.65rem;
   }
   
-  .pricing-section {
-    padding: 4px 6px;
-  }
-  
-  .service-stats {
-    gap: 4px;
-  }
-  
-  .stat-item {
-    font-size: 0.6rem;
-    gap: 2px;
-  }
-  
-  .stat-icon {
-    font-size: 0.55rem;
-  }
   
   .card-actions-modern {
     padding: 5px 6px;
@@ -526,7 +448,7 @@
   }
   
   .service-card-modern {
-    min-height: 260px;
+    /* min-height: 260px; */
     border-radius: 8px;
   }
   
@@ -548,22 +470,7 @@
     -webkit-line-clamp: 2;
   }
   
-  .pricing-section {
-    padding: 3px 4px;
-  }
   
-  .service-stats {
-    gap: 3px;
-  }
-  
-  .stat-item {
-    font-size: 0.58rem;
-    gap: 2px;
-  }
-  
-  .stat-icon {
-    font-size: 0.52rem;
-  }
   
   .card-actions-modern {
     padding: 4px 4px;
@@ -591,7 +498,7 @@
   }
   
   .service-card-modern {
-    min-height: 240px;
+    /* min-height: 240px; */
     max-width: 260px;
     margin: 0 auto;
   }
