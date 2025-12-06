@@ -1,0 +1,470 @@
+/* Home.css - Updated CSS with better hero section spacing */
+
+/* Hero Section Styles */
+.prod-hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 80vh !important;
+  border-radius: 0 0 30px 30px;
+  /* margin-bottom: 2rem; */
+}
+
+.prod-hero-content {
+  flex: 1;
+  max-width: 600px;
+  padding-right: 2rem;
+}
+
+.prod-hero-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #1a365d;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.prod-hero-description {
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.prod-hero-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.prod-hero-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.prod-hero-feature-icon {
+  background: #38a169;
+  color: white;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.prod-hero-feature-text {
+  color: #2d3748;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.prod-hero-cta-button {
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  color: white;
+  border: none;
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+  margin-top: 1rem;
+}
+
+.prod-hero-cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(66, 153, 225, 0.4);
+  background: linear-gradient(135deg, #3182ce 0%, #2c5282 100%);
+}
+
+.prod-hero-image {
+  flex: 1;
+  position: relative;
+  height: 350px;
+  min-width: 280px;
+}
+
+.prod-image-placeholder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.prod-floating-card {
+  position: absolute;
+  background: white;
+  padding: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  min-width: 150px;
+  max-width: 160px;
+  z-index: 1;
+}
+
+.prod-floating-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.prod-card1 {
+  top: 12%;
+  left: 8%;
+  width: 150px;
+  height: 100px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.prod-card2 {
+  top: 50%;
+  right: 12%;
+  width: 150px;
+  height: 100px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.prod-card3 {
+  bottom: 12%;
+  left: 22%;
+  width: 150px;
+  height: 100px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+}
+
+.prod-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  text-align: center;
+}
+
+.prod-card-rate {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Large Laptops and Desktops (1200px and above) */
+@media (min-width: 1200px) {
+  .prod-hero-section {
+    padding: 4rem 3rem;
+    min-height: 75vh;
+  }
+  
+  .prod-hero-title {
+    font-size: 3.2rem;
+  }
+  
+  .prod-hero-image {
+    height: 380px;
+  }
+  
+  .prod-card1 {
+    left: 12%;
+  }
+  
+  .prod-card2 {
+    right: 15%;
+  }
+  
+  .prod-card3 {
+    left: 25%;
+  }
+}
+
+/* Standard Laptops (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .prod-hero-section {
+    padding: 3.5rem 2.5rem;
+  }
+  
+  .prod-hero-title {
+    font-size: 2.6rem;
+  }
+  
+  .prod-hero-description {
+    font-size: 1.05rem;
+  }
+  
+  .prod-hero-image {
+    height: 320px;
+    min-width: 250px;
+  }
+  
+  .prod-floating-card {
+    width: 140px;
+    height: 95px;
+    padding: 1rem;
+  }
+  
+  .prod-card1 {
+    left: 6%;
+  }
+  
+  .prod-card2 {
+    right: 10%;
+  }
+  
+  .prod-card3 {
+    left: 20%;
+  }
+}
+
+/* Tablets Landscape and Small Laptops (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .prod-hero-section {
+    padding: 2.5rem 1.5rem;
+    align-items: center;
+    min-height: 60vh;
+  }
+  
+  .prod-hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .prod-hero-description {
+    font-size: 1rem;
+  }
+  
+  .prod-hero-features {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+  
+  .prod-hero-image {
+    height: 280px;
+    min-width: 220px;
+    margin-left: 1rem;
+  }
+  
+  .prod-floating-card {
+    width: 130px;
+    height: 90px;
+    padding: 0.9rem;
+  }
+  
+  .prod-card1 {
+    top: 8%;
+    left: 4%;
+    width: 125px;
+    height: 85px;
+  }
+  
+  .prod-card2 {
+    top: 50%;
+    right: 6%;
+    width: 125px;
+    height: 85px;
+    transform: translateY(-50%);
+  }
+  
+  .prod-card3 {
+    bottom: 8%;
+    left: 4%;
+    width: 125px;
+    height: 85px;
+  }
+  
+  .prod-card-title {
+    font-size: 0.9rem;
+  }
+  
+  .prod-card-rate {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile Phones (below 768px) */
+@media (max-width: 767px) {
+  .prod-hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    min-height: auto;
+  }
+  
+  .prod-hero-content {
+    max-width: 100%;
+    padding-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .prod-hero-title {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .prod-hero-description {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .prod-hero-features {
+    grid-template-columns: 1fr;
+    max-width: 250px;
+    margin: 0 auto 1.5rem;
+    gap: 0.6rem;
+  }
+  
+  .prod-hero-feature-item {
+    justify-content: center;
+  }
+  
+  .prod-hero-image {
+    width: 100%;
+    height: 200px;
+    min-width: auto;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .prod-floating-card {
+    width: 100px;
+    height: 70px;
+    padding: 0.7rem;
+  }
+  
+  .prod-card1 {
+    top: 10%;
+    left: 5%;
+    width: 95px;
+    height: 65px;
+  }
+  
+  .prod-card2 {
+    top: 50%;
+    right: -5% !important;
+    width: 95px;
+    height: 65px;
+    transform: translateY(-50%);
+  }
+  
+  .prod-card3 {
+    bottom: 10%;
+    left: 20%;
+    width: 95px;
+    height: 65px;
+  }
+  
+  .prod-card-title {
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .prod-card-rate {
+    font-size: 0.95rem;
+  }
+}
+
+/* Small Mobile Phones (below 480px) */
+@media (max-width: 480px) {
+  .prod-hero-section {
+    padding: 1.5rem 1rem;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  .prod-hero-title {
+    font-size: 1.7rem;
+  }
+  
+  .prod-hero-description {
+    font-size: 0.9rem;
+  }
+  
+  .prod-hero-image {
+    height: 180px;
+    max-width: 300px;
+  }
+  
+  .prod-floating-card {
+    width: 90px;
+    height: 65px;
+    padding: 0.6rem;
+  }
+  
+  .prod-card1 {
+    left: 3%;
+    width: 85px;
+    height: 60px;
+  }
+  
+  .prod-card2 {
+    right: 3%;
+    width: 85px;
+    height: 60px;
+  }
+  
+  .prod-card3 {
+    left: 15%;
+    width: 85px;
+    height: 60px;
+  }
+  
+  .prod-card-title {
+    font-size: 0.75rem;
+  }
+  
+  .prod-card-rate {
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra Small Mobile Phones (below 375px) */
+@media (max-width: 374px) {
+  .prod-hero-title {
+    font-size: 1.5rem;
+  }
+  
+  .prod-hero-description {
+    font-size: 0.85rem;
+  }
+  
+  .prod-hero-features {
+    max-width: 220px;
+  }
+  
+  .prod-hero-image {
+    height: 160px;
+    max-width: 280px;
+  }
+  
+  .prod-floating-card {
+    width: 80px;
+    height: 60px;
+    padding: 0.5rem;
+  }
+  
+  .prod-card1 {
+    left: 2%;
+    width: 75px;
+    height: 55px;
+  }
+  
+  .prod-card2 {
+    right: 2%;
+    width: 75px;
+    height: 55px;
+  }
+  
+  .prod-card3 {
+    left: 12%;
+    width: 75px;
+    height: 55px;
+  }
+}
