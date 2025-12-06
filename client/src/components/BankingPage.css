@@ -170,7 +170,7 @@
 }
 
 .table-header {
-  display: grid !important;
+  display: grid;
   grid-template-columns: minmax(150px, 2fr) minmax(100px, 1.5fr) minmax(80px, 1fr) minmax(120px, 1.5fr) minmax(120px, 1.5fr);
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
@@ -698,31 +698,30 @@
   font-size: 1rem;
 }
 
-/* FIXED INPUT STYLING - Completely working */
-.form-group input {
+/* FIXED INPUT STYLING - Simplified to prevent focus issues */
+.cibil-input {
   width: 100%;
   padding: 14px 16px;
   border: 2px solid #d1d5db;
   border-radius: 10px;
   font-size: 1.1rem;
-  transition: all 0.3s ease;
   box-sizing: border-box;
   background: white;
-  font-family: inherit; /* FIX: monospace se inherit */
-  letter-spacing: normal; /* FIX: Remove letter-spacing */
-  -webkit-appearance: none; /* Remove default styling */
+  font-family: monospace;
+  letter-spacing: 1px;
+  -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  /* REMOVED transition and transform to prevent reflow */
 }
 
-.form-group input:focus {
+.cibil-input:focus {
   outline: none;
   border-color: #3b82f6;
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
-  transform: translateY(-2px);
+  /* REMOVED transform and box-shadow to prevent reflow */
 }
 
-.form-group input::placeholder {
+.cibil-input::placeholder {
   color: #9ca3af;
 }
 
@@ -784,7 +783,7 @@
 }
 
 .back-btn {
-  width: 100%;
+  width: 100% !important;
   padding: 14px;
   background: #6b7280;
   color: white;
@@ -854,13 +853,7 @@
   text-align: center;
 }
 
-.score-value.good {
-  color: #10b981;
-}
 
-.score-value.poor {
-  color: #ef4444;
-}
 
 .result-details {
   background: white;
@@ -1023,7 +1016,7 @@
     padding: 25px 20px;
   }
   
-  .form-group input {
+  .cibil-input {
     padding: 12px 14px;
     font-size: 1rem;
   }
@@ -1063,7 +1056,7 @@
     padding: 20px 15px;
   }
   
-  .form-group input {
+  .cibil-input {
     padding: 12px;
     font-size: 1rem;
   }
