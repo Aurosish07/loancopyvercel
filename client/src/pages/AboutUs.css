@@ -1,0 +1,524 @@
+/* AboutUsPage.css */
+
+.aboutPageMain {
+  min-height: 100vh;
+  background-color: #FDF3F7;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 30px 20px;
+}
+
+/* Hero Section */
+.aboutHero {
+  max-width: 1200px;
+  margin: 0 auto 50px;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.heroTitle {
+  font-size: 38px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #FF6B9D 0%, #6A67CE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroDesc {
+  font-size: 16px;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Stats Section */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto 50px;
+}
+
+.statItem {
+  background: white;
+  border-radius: 14px;
+  padding: 25px 15px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.statItem:hover {
+  transform: translateY(-4px);
+}
+
+.statIcon {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, #FF6B9D 0%, #FF8E9D 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: white;
+  font-size: 22px;
+}
+
+.statNumber {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+
+.statText {
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Section Header */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+
+  .sectionHeader h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #0A0A0A;
+    margin: 12px 0;
+    line-height: 1.1;
+}
+
+.sectionHeader span {
+    background: linear-gradient(90deg, #155DFC 0%, #9810FA 100%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+.sectionHeader p {
+  font-size: 15px;
+  color: #666;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Mission Section */
+.missionSection {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+}
+
+.missionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.missionCard {
+  background: white;
+  border-radius: 14px;
+  padding: 35px 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.cardIcon {
+  width: 55px;
+  height: 55px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  font-size: 26px;
+  color: white;
+}
+
+.cardIcon.mission {
+  background: linear-gradient(135deg, #6A67CE 0%, #8B93FF 100%);
+}
+
+.cardIcon.vision {
+  background: linear-gradient(135deg, #FF6B9D 0%, #FF8E9D 100%);
+}
+
+.missionCard h3 {
+  font-size: 20px;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.missionCard p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* Help Section - 4 cards per line above 500px */
+.helpSection {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+}
+
+.helpGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.helpCard {
+  background: white;
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.helpCard:hover {
+  transform: translateY(-4px);
+}
+
+.helpNumber {
+  font-size: 28px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #FF6B9D 0%, #6A67CE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 18px;
+}
+
+.helpCard h4 {
+  font-size: 17px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.helpCard p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Values Section - 4 cards per line above 500px */
+.valuesSection {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.valueItem {
+  text-align: center;
+}
+
+.valueDot {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  margin: 0 auto 18px;
+  position: relative;
+}
+
+.valueDot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+}
+
+.valueDot.trust {
+  background: linear-gradient(135deg, #6A67CE 0%, #8B93FF 100%);
+}
+
+.valueDot.transparency {
+  background: linear-gradient(135deg, #FF6B9D 0%, #FF8E9D 100%);
+}
+
+.valueDot.innovation {
+  background: linear-gradient(135deg, #6A67CE 0%, #FF6B9D 100%);
+}
+
+.valueDot.empathy {
+  background: linear-gradient(135deg, #8B93FF 0%, #FF8E9D 100%);
+}
+
+.valueItem h4 {
+  font-size: 17px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.valueItem p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.simpleCTA {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  padding: 45px 40px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.ctaContent h3 {
+  font-size: 26px;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.ctaContent p {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 25px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #6A67CE 0%, #FF6B9D 100%);
+  color: white;
+  border: none;
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(106, 103, 206, 0.3);
+}
+
+/* Responsive Design */
+
+/* For screens above 500px - Maintain 4 cards layout */
+@media (min-width: 501px) {
+  .statsRow,
+  .helpGrid,
+  .valuesGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .missionGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* For screens 500px and below - Switch to 2 cards layout */
+@media (max-width: 500px) {
+  .aboutPageMain {
+    padding: 20px 15px;
+  }
+  
+  .heroTitle {
+    font-size: 26px;
+    margin-bottom: 14px;
+  }
+  
+  .heroDesc {
+    font-size: 14px;
+  }
+  
+  /* 2 cards per line */
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 40px;
+  }
+  
+  .statItem {
+    padding: 20px 12px;
+    border-radius: 12px;
+  }
+  
+  .statIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  
+  .statNumber {
+    font-size: 20px;
+  }
+  
+  .statText {
+    font-size: 12px;
+  }
+  
+  .sectionHeader {
+    margin-bottom: 30px;
+  }
+  
+  .sectionHeader h2 {
+    font-size: 24px;
+  }
+  
+  .sectionHeader p {
+    font-size: 14px;
+  }
+  
+  .missionSection {
+    margin-bottom: 50px;
+  }
+  
+  .missionGrid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .missionCard {
+    padding: 25px 20px;
+    border-radius: 12px;
+  }
+  
+  .cardIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+  
+  .missionCard h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  
+  .missionCard p {
+    font-size: 13px;
+  }
+  
+  /* 2 cards per line for help section */
+  .helpSection {
+    margin-bottom: 50px;
+  }
+  
+  .helpGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .helpCard {
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  .helpNumber {
+    font-size: 24px;
+    margin-bottom: 14px;
+  }
+  
+  .helpCard h4 {
+    font-size: 16px;
+  }
+  
+  .helpCard p {
+    font-size: 12px;
+  }
+  
+  /* 2 cards per line for values section */
+  .valuesSection {
+    margin-bottom: 50px;
+  }
+  
+  .valuesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .valueDot {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+  }
+  
+  .valueDot::after {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .valueItem h4 {
+    font-size: 16px;
+  }
+  
+  .valueItem p {
+    font-size: 12px;
+  }
+  
+  .simpleCTA {
+    padding: 35px 25px;
+    border-radius: 14px;
+  }
+  
+  .ctaContent h3 {
+    font-size: 22px;
+  }
+  
+  .ctaContent p {
+    font-size: 14px;
+  }
+  
+  .ctaButton {
+    padding: 14px 30px;
+    font-size: 14px;
+  }
+}
+
+/* For very small screens below 350px */
+@media (max-width: 350px) {
+  .aboutPageMain {
+    padding: 15px 12px;
+  }
+  
+  .heroTitle {
+    font-size: 24px;
+  }
+  
+  /* Switch to 1 card per line on very small screens */
+  .statsRow,
+  .helpGrid,
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .statItem,
+  .helpCard,
+  .valueItem {
+    padding: 18px 15px;
+  }
+}
