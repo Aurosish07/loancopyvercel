@@ -61,31 +61,31 @@ const Footer = () => {
               <h4>Products</h4>
               <ul>
                 <li>
-                  <a href="/personal-loans">
+                  <a href="/products">
                     <FontAwesomeIcon icon={faUser} />
                     Personal Loans
                   </a>
                 </li>
                 <li>
-                  <a href="/business-loans">
+                  <a href="/products">
                     <FontAwesomeIcon icon={faBriefcase} />
                     Business Loans
                   </a>
                 </li>
                 <li>
-                  <a href="/mortgage">
+                  <a href="/products">
                     <FontAwesomeIcon icon={faHome} />
                     Home Loans
                   </a>
                 </li>
                 <li>
-                  <a href="/auto-loans">
+                  <a href="/products">
                     <FontAwesomeIcon icon={faCar} />
                     Mortage Loans
                   </a>
                 </li>
                 <li>
-                  <a href="/debt-consolidation">
+                  <a href="/products">
                     <FontAwesomeIcon icon={faBalanceScale} />
                     OD Loan
                   </a>
@@ -102,12 +102,7 @@ const Footer = () => {
                     Home
                   </a>
                 </li>
-                <li>
-                  <a href="/calculator">
-                    <FontAwesomeIcon icon={faCalculator} />
-                    Loan Calculator
-                  </a>
-                </li>
+                
                 <li>
                   <a href="/apply">
                     <FontAwesomeIcon icon={faFileSignature} />
@@ -118,6 +113,12 @@ const Footer = () => {
                   <a href="/about">
                     <FontAwesomeIcon icon={faInfoCircle} />
                     About Us
+                  </a>
+                </li>
+                <li>
+                  <a href="/calculator">
+                    <FontAwesomeIcon icon={faCalculator} />
+                    Loan Calculator
                   </a>
                 </li>
                 <li>
@@ -139,7 +140,7 @@ const Footer = () => {
               </p>
               <p>
                 <FontAwesomeIcon icon={faPhone} />
-                +918889353273
+                +91 88893 53273
               </p>
               <p>
                 <FontAwesomeIcon icon={faMapMarkerAlt} />
@@ -159,12 +160,12 @@ const Footer = () => {
         <div className="footer-bottom">
           <div className="footer-bottom-content">
             <p>
-              &copy; 2025 FinTrust. All rights reserved. | Developed by Geinca
+              &copy; 2025 FinTrust. All rights reserved. | Developed by <a href="http://geinca.com"> Geinca</a> 
             </p>
             <div className="footer-links">
-              <a href="/privacy">Privacy Policy</a>
+              <a href="/terms">Privacy Policy</a>
               <a href="/terms">Terms of Service</a>
-              <a href="/sitemap">Sitemap</a>
+             
             </div>
           </div>
         </div>
