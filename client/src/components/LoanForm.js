@@ -31,7 +31,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
     const fetchBanks = async () => {
       try {
         console.log("🔄 Fetching banks from backend...");
-        const response = await fetch("https://loancopy-production.up.railway.app/api/banks");
+        const response = await fetch("http://localhost:5000/api/banks");
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -85,7 +85,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
 
       console.log("Saving application:", applicationData);
 
-      const response = await fetch("https://loancopy-production.up.railway.app/api/loan-applications", {
+      const response = await fetch("http://localhost:5000/api/loan-applications", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -115,7 +115,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
   const handleBankSelection = async (bankId) => {
     try {
       setIsSubmitting(true);
-      const response = await fetch(`https://loancopy-production.up.railway.app/api/loan-applications/${applicationId}/select-bank`, {
+      const response = await fetch(`http://localhost:5000/api/loan-applications/${applicationId}/select-bank`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -319,8 +319,8 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                 <img src="/images/loan-icon.png" alt="Loan Icon" />
                 <span>Quick & Easy Application</span>
               </div>
-              <h1>Apply for Your Loan <span>Today</span></h1>
-              <p>Fill out the form below and get approved in minutes! ⚡</p>
+              <h1>Get Instant Approval <span>10K to 10Lakh</span></h1>
+              <p>Fill out the form below and get approved in minutes!⚡</p>
             </div>
 
             <form onSubmit={handleSubmit} className="loan-form-full">
@@ -406,7 +406,7 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                       <option value="self-employed">Self-Employed</option>
                       <option value="unemployed">Business</option>
                       <option value="student">Student</option>
-                      <option value="retired">Retired</option>
+                      
                     </select>
                   </div>
                   <div className="form-group-full">
@@ -583,6 +583,16 @@ const LoanForm = ({ preSelectedLoanType, onClose }) => {
                   <div className="extra-docs-full">
                     <h4>Upload Required Documents (Mortgage Loan)</h4>
                     <div className="form-row-full">
+                      <div className="form-group-full">
+                        <label>Property Document *</label>
+                        <input
+                          type="file"
+                          name="propertyDocs"
+                          onChange={handleFileChange}
+                          accept="image/*,application/pdf"
+                          required
+                        />
+                      </div>
                       <div className="form-group-full">
                         <label>ITR/GST/Udyam Registration *</label>
                         <input
