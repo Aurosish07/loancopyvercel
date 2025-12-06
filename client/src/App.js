@@ -11,6 +11,11 @@ import LoanOffers from './pages/LoanOffers';
 import Contact from './pages/Contact';
 import AdminPanel from './components/AdminPanel';
 import './styles/App.css';
+import Product from './pages/Product'
+import Services from './pages/Services';
+import LoanForm from './components/LoanForm';
+import TermsAndConditions from './pages/TermsAndConditions';
+import AboutUs from './pages/AboutUs';
 
 function App() {
   return (
@@ -28,10 +33,15 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/calculator" element={<LoanCalculator />} />
-                  <Route path="/apply-loan" element={<ApplyLoan />} />
+                  <Route path="/apply" element={<LoanForm />} />
                   <Route path="/loan-status" element={<LoanStatus />} />
                   <Route path="/offers" element={<LoanOffers />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="/products" element={<Product />} />
+                  <Route path="/services" element={<Services />} />
+                  <Route path='/terms' element={<TermsAndConditions/>}/>
+                  <Route path='/about' element={<AboutUs/>}/>
+
                 </Routes>
               </main>
               <Footer />
