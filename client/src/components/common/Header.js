@@ -9,6 +9,7 @@ import {
   FaComments,
   FaBars,
   FaTimes,
+  FaHome,
 } from 'react-icons/fa';
 
 const Header = () => {
@@ -29,7 +30,7 @@ const Header = () => {
       <div className="header-container">
         {/* Left - Logo */}
         <div className="header-logo">
-{/* <Link to="/">
+          {/* <Link to="/">
             <img src="https://loancopyvercel.vercel.app/images/logo.png" alt="Logo" />
           </Link> */}
         </div>
@@ -41,20 +42,21 @@ const Header = () => {
 
         {/* Right - Navbar */}
         <nav className={`header-nav ${menuOpen ? 'active' : ''}`}>
+            <Link to="/" className="nav-item" onClick={closeMenu}>
+            <FaHome className="nav-icon" /> Home
+          </Link>
           <Link to="/products" className="nav-item" onClick={closeMenu}>
             <FaBoxOpen className="nav-icon" /> Products
           </Link>
           <Link to="/services" className="nav-item" onClick={closeMenu}>
             <FaClipboardList className="nav-icon" /> Services
           </Link>
-          <Link to="/features" className="nav-item" onClick={closeMenu}>
-            <FaCogs className="nav-icon" /> Features
+          <Link to="/about" className="nav-item" onClick={closeMenu}>
+            <FaCogs className="nav-icon" /> About
           </Link>
-          <Link to="/pricing" className="nav-item" onClick={closeMenu}>
-            <FaTags className="nav-icon" /> Pricing
-          </Link>
-          <Link to="/support" className="nav-item" onClick={closeMenu}>
-            <FaComments className="nav-icon" /> Support
+         
+          <Link to="/terms" className="nav-item" onClick={closeMenu}>
+            <FaComments className="nav-icon" /> Terms & Privacy
           </Link>
         </nav>
       </div>
@@ -63,3 +65,5 @@ const Header = () => {
 };
 
 export default Header;
+
+
