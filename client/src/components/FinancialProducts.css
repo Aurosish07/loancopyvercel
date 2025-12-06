@@ -267,12 +267,12 @@
 }
 
 .finpro-detail-value {
-  font-size: 0.85rem;
+  font-size: 0.87rem !important;
   color: #2d3748;
   font-weight: 700;
   line-height: 1.2;
   text-align: right;
-  flex: 1;
+  /* flex: 1; */
   background: linear-gradient(90deg, #9810FA 0%, #E60076 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -621,7 +621,7 @@
   }
   
   .finpro-detail-value {
-    font-size: 0.55rem;
+    font-size: 0.65rem !important;
   }
   
   .finpro-card-actions {
