@@ -12,7 +12,7 @@ import Contact from './pages/Contact';
 import AdminPanel from './components/AdminPanel';
 import './styles/App.css';
 import Product from './pages/Product'
-import Services from './pages/Services';
+import Services from './pages/Service';
 import LoanForm from './components/LoanForm';
 import TermsAndConditions from './pages/TermsAndConditions';
 import AboutUs from './pages/AboutUs';
