@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './BankingPage.css';
 
@@ -12,12 +12,13 @@ const BankingPage = ({
   const [loading, setLoading] = useState(true);
   const [selectedBank, setSelectedBank] = useState(null);
   const [step, setStep] = useState('bank-selection');
-  const [cibilData, setCibilData] = useState({
-    aadharNumber: '',
-    panNumber: ''
-  });
   const [cibilScore, setCibilScore] = useState(null);
   const [isCibilChecking, setIsCibilChecking] = useState(false);
+  const [forceUpdate, setForceUpdate] = useState(0); // Just to force updates
+  
+  // Refs for input values
+  const aadharValue = useRef('');
+  const panValue = useRef('');
   
   const location = useLocation();
   const navigate = useNavigate();
@@ -75,47 +76,66 @@ const BankingPage = ({
     setStep('cibil-check');
   };
 
-  // COMPLETELY FIXED INPUT HANDLER
-  const handleCibilInputChange = (e) => {
-    const { name, value } = e.target;
+  // Simple Aadhar input handler - NO RE-RENDERS
+  const handleAadharInput = (e) => {
+    const value = e.target.value;
     
-    console.log(`🔄 Input changed: ${name} = "${value}"`); // Debug log
-    
-    if (name === 'aadharNumber') {
-      // Simple number filtering
-      const numbersOnly = value.replace(/\D/g, '');
-      console.log(`📊 Aadhar filtered: "${value}" -> "${numbersOnly}"`);
-      
-      setCibilData(prev => ({
-        ...prev,
-        [name]: numbersOnly
-      }));
-    } 
-    else if (name === 'panNumber') {
-      // Simple uppercase and alphanumeric filtering
-      const upperCase = value.toUpperCase().replace(/[^A-Z0-9]/g, '');
-      console.log(`📊 PAN filtered: "${value}" -> "${upperCase}"`);
-      
-      setCibilData(prev => ({
-        ...prev,
-        [name]: upperCase
-      }));
+    // Filter digits only
+    let numbersOnly = value.replace(/\D/g, '');
+    if (numbersOnly.length > 12) {
+      numbersOnly = numbersOnly.slice(0, 12);
     }
+    
+    // Store in ref
+    aadharValue.current = numbersOnly;
+    
+    // Format with spaces for display
+    let formatted = numbersOnly;
+    if (numbersOnly.length > 4) {
+      formatted = numbersOnly.slice(0, 4) + ' ' + numbersOnly.slice(4);
+    }
+    if (numbersOnly.length > 8) {
+      formatted = numbersOnly.slice(0, 4) + ' ' + numbersOnly.slice(4, 8) + ' ' + numbersOnly.slice(8);
+    }
+    
+    // Update input value
+    e.target.value = formatted;
   };
+
+  // Simple PAN input handler - NO RE-RENDERS
+  const handlePanInput = (e) => {
+    const value = e.target.value;
+    
+    // Filter and uppercase
+    let filtered = value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+    if (filtered.length > 10) {
+      filtered = filtered.slice(0, 10);
+    }
+    
+    // Store in ref
+    panValue.current = filtered;
+    
+    // Update input value
+    e.target.value = filtered;
+  };
+
+  // Check validation
+  const isAadharValid = () => aadharValue.current.length === 12;
+  const isPanValid = () => panValue.current.length === 10;
 
   // CIBIL Check Simulation
   const performCibilCheck = async () => {
-    if (!cibilData.aadharNumber || !cibilData.panNumber) {
+    if (!aadharValue.current || !panValue.current) {
       alert('Please enter both Aadhar and PAN numbers');
       return;
     }
 
-    if (cibilData.aadharNumber.length !== 12) {
+    if (!isAadharValid()) {
       alert('Please enter valid 12-digit Aadhar number');
       return;
     }
 
-    if (cibilData.panNumber.length !== 10) {
+    if (!isPanValid()) {
       alert('Please enter valid 10-character PAN number');
       return;
     }
@@ -174,129 +194,69 @@ const BankingPage = ({
     );
   }
 
-  // SIMPLIFIED CIBIL CHECK COMPONENT
-  const CibilCheckPage = () => (
-    <div className="cibil-check-page">
-      <div className="cibil-header">
-        <h2>CIBIL Score Verification</h2>
-        <p>Enter your details for instant CIBIL check</p>
+  // CIBIL CHECK PAGE - SIMPLIFIED, NO RE-RENDERS
+  const CibilCheckPage = () => {
+    return (
+      <div className="cibil-check-page">
+        <div className="cibil-header">
+          <h2>CIBIL Score Verification</h2>
+          <p>Enter your details for instant CIBIL check</p>
+        </div>
+
+        <div className="cibil-form">
+          <div className="form-group">
+            <label htmlFor="aadharNumber">Aadhar Number *</label>
+            <input
+              type="text"
+              id="aadharNumber"
+              name="aadharNumber"
+              className="cibil-input"
+              placeholder="Enter 12-digit Aadhar number"
+              onChange={handleAadharInput}
+              maxLength={14}
+              inputMode="numeric"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="panNumber">PAN Number *</label>
+            <input
+              type="text"
+              id="panNumber"
+              name="panNumber"
+              className="cibil-input"
+              placeholder="Enter PAN number (e.g., ABCDE1234F)"
+              onChange={handlePanInput}
+              maxLength={10}
+              required
+            />
+          </div>
+
+          <div className="cibil-note">
+            <p>🔒 Your information is secure and encrypted. We use bank-level security.</p>
+          </div>
+
+          <button 
+            className={`cibil-check-btn ${isCibilChecking ? 'loading' : ''}`}
+            onClick={performCibilCheck}
+            disabled={isCibilChecking}
+          >
+            {isCibilChecking ? 'Checking CIBIL Score...' : 'Check CIBIL Score 🔍'}
+          </button>
+
+          <button 
+            className="back-btn"
+            onClick={() => setStep('bank-selection')}
+          >
+            ← Back to Bank Selection
+          </button>
+        </div>
       </div>
+    );
+  };
 
-      <div className="cibil-form">
-        <div className="form-group">
-          <label htmlFor="aadharNumber">Aadhar Number *</label>
-          <input
-            type="text"
-            id="aadharNumber"
-            name="aadharNumber"
-            placeholder="Enter 12-digit Aadhar number"
-            value={cibilData.aadharNumber}
-            onChange={handleCibilInputChange}
-            style={{
-              width: '100%',
-              padding: '12px',
-              border: '2px solid #d1d5db',
-              borderRadius: '8px',
-              fontSize: '16px',
-              backgroundColor: 'white'
-            }}
-            required
-          />
-          {cibilData.aadharNumber && (
-            <small style={{
-              color: cibilData.aadharNumber.length === 12 ? 'green' : 'red', 
-              fontSize: '12px',
-              display: 'block',
-              marginTop: '5px'
-            }}>
-              {cibilData.aadharNumber.length === 12 
-                ? '✓ Valid Aadhar number' 
-                : `${cibilData.aadharNumber.length}/12 digits entered`
-              }
-            </small>
-          )}
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="panNumber">PAN Number *</label>
-          <input
-            type="text"
-            id="panNumber"
-            name="panNumber"
-            placeholder="Enter PAN number (e.g., ABCDE1234F)"
-            value={cibilData.panNumber}
-            onChange={handleCibilInputChange}
-            style={{
-              width: '100%',
-              padding: '12px',
-              border: '2px solid #d1d5db',
-              borderRadius: '8px',
-              fontSize: '16px',
-              backgroundColor: 'white'
-            }}
-            required
-          />
-          {cibilData.panNumber && (
-            <small style={{
-              color: cibilData.panNumber.length === 10 ? 'green' : 'red', 
-              fontSize: '12px',
-              display: 'block',
-              marginTop: '5px'
-            }}>
-              {cibilData.panNumber.length === 10 
-                ? '✓ Valid PAN number' 
-                : `${cibilData.panNumber.length}/10 characters entered`
-              }
-            </small>
-          )}
-        </div>
-
-        <div className="cibil-note">
-          <p>🔒 Your information is secure and encrypted. We use bank-level security.</p>
-        </div>
-
-        <button 
-          className={`cibil-check-btn ${isCibilChecking ? 'loading' : ''}`}
-          onClick={performCibilCheck}
-          disabled={isCibilChecking || cibilData.aadharNumber.length !== 12 || cibilData.panNumber.length !== 10}
-          style={{
-            width: '100%',
-            padding: '15px',
-            backgroundColor: isCibilChecking ? '#9ca3af' : '#3b82f6',
-            color: 'white',
-            border: 'none',
-            borderRadius: '8px',
-            fontSize: '16px',
-            fontWeight: '600',
-            cursor: isCibilChecking ? 'not-allowed' : 'pointer',
-            marginBottom: '15px'
-          }}
-        >
-          {isCibilChecking ? 'Checking CIBIL Score...' : 'Check CIBIL Score 🔍'}
-        </button>
-
-        <button 
-          className="back-btn"
-          onClick={() => setStep('bank-selection')}
-          style={{
-            width: '100%',
-            padding: '12px',
-            backgroundColor: '#6b7280',
-            color: 'white',
-            border: 'none',
-            borderRadius: '8px',
-            fontSize: '14px',
-            fontWeight: '600',
-            cursor: 'pointer'
-          }}
-        >
-          ← Back to Bank Selection
-        </button>
-      </div>
-    </div>
-  );
-
-  // CIBIL Result Component
+  // CIBIL Result Component (unchanged)
   const CibilResultPage = () => (
     <div className="cibil-result-page">
       <div className={`result-header ${cibilScore >= 650 ? 'approved' : 'rejected'}`}>
@@ -546,3 +506,4 @@ const BankingPage = ({
 };
 
 export default BankingPage;
+
