@@ -32,7 +32,7 @@ const AdminPanel = () => {
       setLoading(true);
       const authToken = token || localStorage.getItem('auth_token');
       
-      const response = await fetch('http://localhost:5000api/loan-applications', {
+      const response = await fetch('https://loancopy.onrender.com/api/loan-applications', {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
