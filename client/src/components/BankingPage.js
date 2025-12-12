@@ -45,7 +45,7 @@ const BankingPage = ({
   const fetchBanks = async () => {
     try {
       console.log('🔄 Fetching banks from backend...');
-      const response = await fetch('https://loancopy-production.up.railway.app/api/banks');
+      const response = await fetch('https://loancopy.onrender.com/api/banks');
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
