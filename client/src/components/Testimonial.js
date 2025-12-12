@@ -21,7 +21,7 @@ const Testimonial = () => {
     const fetchTestimonials = async () => {
       try {
         setLoading(true);
-        const response = await fetch("https://loancopy-production.up.railway.app/api/testimonials");
+        const response = await fetch("https://loancopy.onrender.com/api/testimonials");
         
         if (!response.ok) {
           throw new Error("Failed to fetch testimonials");
