@@ -74,7 +74,7 @@ const AdminPanel = () => {
     try {
       const token = localStorage.getItem('auth_token');
       if (token) {
-        await fetch('http://localhost:5000api/auth/logout', {
+        await fetch('https://loancopy.onrender.com/api/auth/logout', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -97,7 +97,7 @@ const AdminPanel = () => {
     try {
       const token = localStorage.getItem('auth_token');
       
-      const response = await fetch(`http://localhost:5000api/loan-applications/${id}`, {
+      const response = await fetch(`https://loancopy.onrender.com/api/loan-applications/${id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
