@@ -14,7 +14,7 @@ const LoanServices = ({ onApplyClick }) => {
   useEffect(() => {
     const fetchLoanServices = async () => {
       try {
-        const response = await fetch("https://loancopy-production.up.railway.app/api/loan-services");
+        const response = await fetch("https://loancopy.onrender.com/api/loan-services");
         if (!response.ok) throw new Error("Failed to fetch loan services");
         const data = await response.json();
         setLoanServices(data);
@@ -70,7 +70,7 @@ const LoanServices = ({ onApplyClick }) => {
                 <div className="card-content-modern">
                   <div className="service-image-container">
                     <img
-                      src={`https://loancopy-production.up.railway.app${service.image}`}
+                      src={`https://loancopy.onrender.com/${service.image}`}
                       alt={service.name}
                       className="service-image"
                       onError={(e) =>
