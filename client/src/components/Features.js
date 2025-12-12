@@ -5,7 +5,7 @@ const Features = () => {
   const [features, setFeatures] = useState([]);
 
   useEffect(() => {
-    fetch("https://loancopy-production.up.railway.app/api/features")
+    fetch("https://loancopy.onrender.com/api/features")
       .then((res) => res.json())
       .then((data) => setFeatures(data))
       .catch((err) => console.error("Error fetching features:", err));
@@ -26,7 +26,7 @@ const Features = () => {
             {features.map((feature) => (
               <div key={feature.id} className="process-step-appx">
                 <img
-                  src={`https://loancopy-production.up.railway.app${feature.image}`}
+                  src={`https://loancopy.onrender.com/${feature.image}`}
                   alt={`Feature ${feature.id}`}
                   className="step-image-appx"
                 />
