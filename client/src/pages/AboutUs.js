@@ -181,9 +181,9 @@ const AboutUs = () => {
         </div>
       </div>
 
-       <div ref={loanFormRef}>
+       {/* <div ref={loanFormRef}>
         <LoanForm preSelectedLoanType={selectedLoanType} />
-      </div>
+      </div> */}
     </div>
   );
 };
