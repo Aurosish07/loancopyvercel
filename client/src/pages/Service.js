@@ -98,9 +98,9 @@ const Services = () => {
         onApplyClick={handleServiceApplyClick}
       />
       {/* Loan Form Section with ref for scrolling */}
-      <div ref={loanFormRef}>
+      {/* <div ref={loanFormRef}>
         <LoanForm preSelectedLoanType={selectedLoanType} />
-      </div>
+      </div> */}
     </div>
   );
 };
