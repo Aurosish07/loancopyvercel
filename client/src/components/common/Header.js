@@ -55,9 +55,9 @@ const Header = () => {
             <FaCogs className="nav-icon" /> About
           </Link>
          
-          <Link to="/terms" className="nav-item" onClick={closeMenu}>
+          {/* <Link to="/terms" className="nav-item" onClick={closeMenu}>
             <FaComments className="nav-icon" /> Terms & Privacy
-          </Link>
+          </Link> */}
         </nav>
       </div>
     </header>
@@ -65,5 +65,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
