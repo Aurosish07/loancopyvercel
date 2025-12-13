@@ -39,7 +39,7 @@ const Footer = () => {
                 Making financial dreams come true, one loan at a time. Trusted
                 by over 50,000 customers nationwide.
               </p>
-              <div className="social-links">
+              {/* <div className="social-links">
                 <a href="#" aria-label="Facebook">
                   <FontAwesomeIcon icon={faFacebookF} />
                 </a>
@@ -52,7 +52,7 @@ const Footer = () => {
                 <a href="#" aria-label="Instagram">
                   <FontAwesomeIcon icon={faInstagram} />
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -138,22 +138,22 @@ const Footer = () => {
                 <FontAwesomeIcon icon={faEnvelope} />
                 support@loanpro.com
               </p>
-              <p>
+              {/* <p>
                 <FontAwesomeIcon icon={faPhone} />
                 +91 88893 53273
-              </p>
+              </p> */}
               <p>
                 <FontAwesomeIcon icon={faMapMarkerAlt} />
                 123 Finance Street, Moneyville
               </p>
             </div>
-            <div className="newsletter">
+            {/* <div className="newsletter">
               <h5>Stay Updated</h5>
               <div className="newsletter-form">
                 <input type="email" placeholder="Your email address" />
                 <button type="submit">Subscribe</button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
