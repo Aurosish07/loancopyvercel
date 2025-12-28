@@ -32,7 +32,7 @@ const AdminPanel = () => {
       setLoading(true);
       const authToken = token || localStorage.getItem('auth_token');
       
-      const response = await fetch('https://loancopy.onrender.com/api/loan-applications', {
+      const response = await fetch('https://api.woodxo.com/api/loan-applications', {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
@@ -74,7 +74,7 @@ const AdminPanel = () => {
     try {
       const token = localStorage.getItem('auth_token');
       if (token) {
-        await fetch('https://loancopy.onrender.com/api/auth/logout', {
+        await fetch('https://api.woodxo.com/api/auth/logout', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -97,7 +97,7 @@ const AdminPanel = () => {
     try {
       const token = localStorage.getItem('auth_token');
       
-      const response = await fetch(`https://loancopy.onrender.com/api/loan-applications/${id}`, {
+      const response = await fetch(`https://api.woodxo.com/api/loan-applications/${id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
