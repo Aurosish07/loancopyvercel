@@ -5,7 +5,7 @@ const Features = () => {
   const [features, setFeatures] = useState([]);
 
   useEffect(() => {
-    fetch("https://loancopy.onrender.com/api/features")
+    fetch("https://api.woodxo.com/api/features")
       .then((res) => res.json())
       .then((data) => setFeatures(data))
       .catch((err) => console.error("Error fetching features:", err));
